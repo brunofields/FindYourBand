@@ -15,10 +15,10 @@ ion-content{
     }
     
     .logo{
-        background-image: url('./../../assets/icon/LogoNovo.png');
+        background-image: url('./../../assets/icon/LogoBranco.png');
         background-size: cover;
-        font-size: 26vh;
-        height: 230px;
+        font-size: 25vh;
+        height: 231px;
         transform: translate(-50%, -50%);
         position: absolute;
         top: 50%;
@@ -29,6 +29,19 @@ ion-content{
     
     h1{
         text-align:center;
+        color: #ffffff;
+        font-size: 2.0em;
+    }
+
+    h6{
+        color: #ffffff;
+        font-size: 1.0em;
+    }
+
+    ion-row{
+        background: #ffffff;
+        border-radius: 5px;
+        margin-bottom: 25px;
     }
     
 }

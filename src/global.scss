@@ -10,23 +10,57 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
+@font-face{
+    font-family:"Solomon Sans";
+    src: url('./assets/solomon_sans/Solomon-Sans-Light.otf');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"Solomon Sans";
+    src: url('./assets/solomon_sans/Solomon-Sans-Normal.otf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"Solomon Sans";
+    src: url('./assets/solomon_sans/Solomon-Sans-SemiBold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"Solomon Sans";
+    src: url('./assets/solomon_sans/Solomon-Sans-Bold.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title, ion-input{
+    font-family: 'Open Sans' !important;
+    }
+
 ion-content{
-    background: #ffefba; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #d1d1d1, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #d1d1d1, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --ion-background-color: linear-gradient(to right, #ff5353, #f53d3d);
+    background: #ff6363; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff6363, #f53d3d); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff6363, #f53d3d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 ion-header{
-    --ion-background-color: -webkit-linear-gradient(to right, rgb(25, 9, 128), #0D0259); /* Chrome 10-25, Safari 5.1-6 */;  /* Chrome 10-25, Safari 5.1-6 */;
+    // --ion-background-color: -webkit-linear-gradient(to right, rgb(25, 9, 128), #0D0259); /* Chrome 10-25, Safari 5.1-6 */;  /* Chrome 10-25, Safari 5.1-6 */;
+    --ion-background-color: #f53d3d;
     background: #0D0259;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, rgb(25, 9, 128), #0D0259);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, rgb(25, 9, 128), #0D0259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-ion-input{
-    margin-bottom: 20px; 
-    border: 2px solid;
-    border-color: #0D0259;
-    border-radius: 17px;
-    background-color: #ffffff;
-}
+// ion-input{
+//     margin-bottom: 20px; 
+//     border: 2px solid;
+//     border-color: #0D0259;
+//     border-radius: 17px;
+//     background-color: #ffffff;
+// }
