@@ -1,5 +1,7 @@
 {
   "name": "Feedly",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

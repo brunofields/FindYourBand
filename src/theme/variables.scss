@@ -3,6 +3,11 @@
 
 /** Ionic CSS Variables **/
 :root {
+
+  body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
+    font-family: 'Open Sans' !important;
+    }
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;

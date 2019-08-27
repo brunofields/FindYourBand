@@ -1,0 +1,39 @@
+ion-header{
+    --ion-background-color: -webkit-linear-gradient(to right, #2980b9, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */;  /* Chrome 10-25, Safari 5.1-6 */;
+    background: #ed213a; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ed213a, #93291e); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ed213a, #93291e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    ion-title{
+        font-weight: 800;
+        color: white;
+        letter-spacing: 1px;
+    }
+
+}
+
+ion-content{
+
+
+    ion-title{
+        font-weight: 700;
+    }
+    
+    .logo{
+        background-image: url('./../../assets/icon/Logo.png');
+        background-size: cover;
+        font-size: 25vh;
+        height: 227px;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        position: relative;
+    }
+    
+    h1{
+        text-align:center;
+    }
+    
+}
