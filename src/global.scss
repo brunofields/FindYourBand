@@ -11,15 +11,22 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 ion-content{
-    --ion-background-color: -webkit-linear-gradient(to right, #2980b9, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */;  /* Chrome 10-25, Safari 5.1-6 */;
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ffefba; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #d1d1d1, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #d1d1d1, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 ion-header{
-    --ion-background-color: -webkit-linear-gradient(to right, #2980b9, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */;  /* Chrome 10-25, Safari 5.1-6 */;
-    background: #ed213a; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ed213a, #93291e); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ed213a, #93291e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    --ion-background-color: -webkit-linear-gradient(to right, rgb(25, 9, 128), #0D0259); /* Chrome 10-25, Safari 5.1-6 */;  /* Chrome 10-25, Safari 5.1-6 */;
+    background: #0D0259;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgb(25, 9, 128), #0D0259);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgb(25, 9, 128), #0D0259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+ion-input{
+    margin-bottom: 20px; 
+    border: 2px solid;
+    border-color: #0D0259;
+    border-radius: 17px;
+    background-color: #ffffff;
 }

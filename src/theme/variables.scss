@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
 
-  body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
+  body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title, ion-input{
     font-family: 'Open Sans' !important;
     }
 
@@ -73,7 +73,7 @@
   --ion-color-medium-tint: #a2a4ab;
 
   /** light **/
-  --ion-color-light: #f4f5f8;
+  --ion-color-light: #f4f5f8e0;
   --ion-color-light-rgb: 244, 244, 244;
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0, 0, 0;
