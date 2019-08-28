@@ -28,15 +28,15 @@
     <ion-grid style="width: 75%;">
       <ion-row class="rowStyle">
        <ion-icon name="mail" color="danger"></ion-icon>
-          <ion-input type="email" placeholder="email:"></ion-input>
+          <ion-input [(ngModel)]="email" type="email" placeholder="email:"></ion-input>
         </ion-row>    
       <ion-row class="rowStyle">
           <ion-icon name="key" color="danger"></ion-icon>
-          <ion-input type="password" placeholder="senha:"></ion-input>
+          <ion-input [(ngModel)]="senha" type="password" placeholder="senha:"></ion-input>
       </ion-row>
 
       <ion-row>
-        <ion-button class="btnStyle" expand="block" shape="round" fill="outline" color="light">login</ion-button>
+        <ion-button (click)="login()" class="btnStyle" expand="block" shape="round" fill="outline" color="light">login</ion-button>
       </ion-row>
 
     </ion-grid>

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { NavController, AlertController } from '@ionic/angular';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-signup',
@@ -96,17 +97,21 @@ export class SignupComponent implements OnInit {
     this.signUpForm = this.formBuilder.group({
       nome: new FormControl('', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])),
       genero: new FormControl('', Validators.compose([Validators.required])),
-      data: new FormControl('', Validators.required),
-      telefone: new FormControl('', Validators.required),
-      talento: new FormControl('', Validators.required),
-      estilos: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      senha: new FormControl('', Validators.required),
+      data: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
+      telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)])),
+      talento: new FormControl('', Validators.compose([Validators.required])),
+      estilos: new FormControl('', Validators.compose([Validators.required])),
+      email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+      senha: new FormControl('', Validators.compose([Validators.required])),
+      confirmaSenha: new FormControl('', Validators.required),
+    },{
     });
     
     
     
   }
+  
+  
   
   async presentAlert() {
     var concatErro = '<hr><span style="font-size: 1.2em; text-align: center">';
@@ -142,7 +147,7 @@ export class SignupComponent implements OnInit {
     if(!this.signUpForm.get('senha').valid){
       concatErro += '<br>senha precisa ter 6 caracteres e pelo menos 1 número<span style="color: red; font-weight:700">*</span>' 
     }
-
+    
     concatErro += "</span>"
     
     const alert = await this.alertController.create({
@@ -155,6 +160,16 @@ export class SignupComponent implements OnInit {
     
     await alert.present();
   }
+
+  async presentAlerta(message) {
+    const alert = await this.alertController.create({
+      header: 'ops, algo deu errado!',
+      message: message,
+      mode: 'ios',
+      buttons: ['Ok']
+    });
+    await alert.present();
+  }
   
   gotoLogin(){
     this.navCtrl.navigateBack('/login');
@@ -165,7 +180,33 @@ export class SignupComponent implements OnInit {
     
     if(!this.signUpForm.valid){
       this.presentAlert();
-    }    
+      return;
+    }   else {
+      
+      firebase.auth().createUserWithEmailAndPassword(this.signUpForm.get('email').value,this.signUpForm.get('senha').value)
+      .then((data) => {
+        console.log(data)
+
+
+        // newUser.updatePhoneNumber(this.signUpForm.get('telefone').value).then((err) => {
+        //   console.log(err)
+        // })
+
+
+        let newUser: firebase.User = data.user;
+        newUser.updateProfile({
+          displayName: this.signUpForm.get('nome').value,
+          photoURL: "",
+        }).then((res) => {
+          console.log('Profile Updated')
+        }).catch((err) => {
+          console.log(err)
+        })
+      }).catch((err) => {
+        console.log(err)
+        this.presentAlerta(err.message)
+      })  
+    } 
   }
   
   
