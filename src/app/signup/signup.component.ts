@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { NavController, AlertController } from '@ionic/angular';
 import * as firebase from 'firebase';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-signup',
@@ -102,8 +103,8 @@ export class SignupComponent implements OnInit {
       talento: new FormControl('', Validators.compose([Validators.required])),
       estilos: new FormControl('', Validators.compose([Validators.required])),
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
-      senha: new FormControl('', Validators.compose([Validators.required])),
-      confirmaSenha: new FormControl('', Validators.required),
+      senha: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
+      confirmaSenha: new FormControl('', [Validators.required, Validators.minLength(6)]),
     },{
     });
     
@@ -145,7 +146,7 @@ export class SignupComponent implements OnInit {
     }
     
     if(!this.signUpForm.get('senha').valid){
-      concatErro += '<br>senha precisa ter 6 caracteres e pelo menos 1 número<span style="color: red; font-weight:700">*</span>' 
+      concatErro += '<br>senha precisa ter 6 caracteres<span style="color: red; font-weight:700">*</span>' 
     }
     
     concatErro += "</span>"
@@ -160,8 +161,21 @@ export class SignupComponent implements OnInit {
     
     await alert.present();
   }
-
+  
   async presentAlerta(message) {
+    
+    if(message=="auth/email-already-in-use"){
+      message = "e-mail já cadastrado!"
+    }
+    
+    if(message=="auth/weak-password"){
+      message = "a senha deve conter pelo menos 6 caracteres!"
+    }
+    
+    if(message=="senhaigual"){
+      message = "as senhas devem ser iguais!"
+    }
+    
     const alert = await this.alertController.create({
       header: 'ops, algo deu errado!',
       message: message,
@@ -176,7 +190,14 @@ export class SignupComponent implements OnInit {
   }
   
   submitForm(){
+
     this.submitAttempt = true;
+
+    
+      if(this.signUpForm.get('senha').value != this.signUpForm.get('confirmaSenha').value){
+        this.presentAlerta('senhaigual');
+        return;
+      }
     
     if(!this.signUpForm.valid){
       this.presentAlert();
@@ -186,13 +207,13 @@ export class SignupComponent implements OnInit {
       firebase.auth().createUserWithEmailAndPassword(this.signUpForm.get('email').value,this.signUpForm.get('senha').value)
       .then((data) => {
         console.log(data)
-
-
+        
+        
         // newUser.updatePhoneNumber(this.signUpForm.get('telefone').value).then((err) => {
         //   console.log(err)
         // })
-
-
+        
+        
         let newUser: firebase.User = data.user;
         newUser.updateProfile({
           displayName: this.signUpForm.get('nome').value,
@@ -204,7 +225,7 @@ export class SignupComponent implements OnInit {
         })
       }).catch((err) => {
         console.log(err)
-        this.presentAlerta(err.message)
+        this.presentAlerta(err.code)
       })  
     } 
   }

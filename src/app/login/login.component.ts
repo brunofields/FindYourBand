@@ -26,6 +26,14 @@ export class LoginComponent implements OnInit {
       message = "e-mail não cadastrado!"
     }
 
+    if(message.code=='auth/invalid-email'){
+      message = "e-mail inválido!"
+    }
+
+    if(message.code=='auth/wrong-password'){
+      message = "senha inválida!"
+    }
+
     const alert = await this.alertController.create({
       header: 'ops, algo deu errado!',
       message: message,
