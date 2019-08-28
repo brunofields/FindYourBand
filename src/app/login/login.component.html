@@ -1,14 +1,14 @@
-<ion-header>
+<ion-header hidden>
   <ion-toolbar class="header">
     <ion-title style="text-align: center;">
-      Find Your Band
+      find your band
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-item text-center lines="none">
-    <ion-icon class="logo" color="light"></ion-icon>
+  <ion-item text-center lines="none" style="padding-top:10px;">
+    <img class="logo" src="./../../assets/icon/LogoBranco.png">
     </ion-item>
     
     <ion-item text-center lines="none">
@@ -21,19 +21,25 @@
     
     <ion-item text-center lines="none">
       <ion-label>
-        <h6>find your band</h6>
+        <h6>faça seu login :)</h6>
       </ion-label>
     </ion-item>
     
     <ion-grid style="width: 75%;">
-      <ion-row>
-       <ion-icon name="mail" color="#0D0259"></ion-icon>
+      <ion-row class="rowStyle">
+       <ion-icon name="mail" color="danger"></ion-icon>
           <ion-input type="email" placeholder="email:"></ion-input>
         </ion-row>    
-      <ion-row>
-          <ion-icon name="key" color="#0D0259"></ion-icon>
+      <ion-row class="rowStyle">
+          <ion-icon name="key" color="danger"></ion-icon>
           <ion-input type="password" placeholder="senha:"></ion-input>
       </ion-row>
+
+      <ion-row>
+        <ion-button class="btnStyle" expand="block" shape="round" fill="outline" color="light">login</ion-button>
+      </ion-row>
+
     </ion-grid>
-    
+
+    <ion-button (click)="gotoSignUp()" class="btnStyle" expand="block" fill="clear" color="light">não se cadastrou ainda? clique aqui</ion-button>
   </ion-content>

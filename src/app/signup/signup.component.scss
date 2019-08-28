@@ -46,6 +46,35 @@ ion-content{
             margin-top: 13px;
             margin-right: 5px;
         }
+        
+        ion-input[type=number]::-webkit-inner-spin-button, 
+        ion-input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }   
+        
+        
+    }
+    
+    .rowStyleSelect{
+        background: #ffffff;
+        padding-left: 15px;
+        border-radius: 25px;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 100% !important;
+        white-space: nowrap;
+        ion-icon{
+            margin-top: 13px;
+        }
+        
+        
+        
+    }
+
+    .turnRed{
+        color: red;
+        font-weight: 500;
     }
     
     .btnStyle{
@@ -59,5 +88,4 @@ ion-content{
     a{
         text-decoration: none;
     }
-    
 }
