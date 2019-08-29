@@ -19,12 +19,10 @@ export class SignupComponent implements OnInit {
   
   customAlertOptions: any = {
     header: 'selecione um ou mais instrumentos:',
-    translucent: true,
   };
   
   customAlertOptionsEstilo: any = {
     header: 'selecione um ou mais estilos musicais:',
-    translucent: true,
   };
   
   talentos = [
@@ -108,11 +106,7 @@ export class SignupComponent implements OnInit {
     },{
     });
     
-    
-    
   }
-  
-  
   
   async presentAlert() {
     var concatErro = '<hr><span style="font-size: 1.2em; text-align: center">';
@@ -184,9 +178,20 @@ export class SignupComponent implements OnInit {
     });
     await alert.present();
   }
+
+  async AlertaCriado() {
+    
+    const alert = await this.alertController.create({
+      header: 'sucesso!',
+      message: 'você já pode logar agora',
+      mode: 'ios',
+      buttons: ['Ok']
+    });
+    await alert.present();
+  }
   
   gotoLogin(){
-    this.navCtrl.navigateBack('/login');
+    this.navCtrl.navigateBack('/');
   }
   
   submitForm(){
@@ -208,18 +213,12 @@ export class SignupComponent implements OnInit {
       .then((data) => {
         console.log(data)
         
-        
-        // newUser.updatePhoneNumber(this.signUpForm.get('telefone').value).then((err) => {
-        //   console.log(err)
-        // })
-        
-        
         let newUser: firebase.User = data.user;
         newUser.updateProfile({
           displayName: this.signUpForm.get('nome').value,
           photoURL: "",
         }).then((res) => {
-          console.log('Profile Updated')
+          this.AlertaCriado();
         }).catch((err) => {
           console.log(err)
         })

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController } from '@ionic/angular';
+import { NavController, AlertController, ToastController } from '@ionic/angular';
 import { FormsModule } from '@angular/forms'
 import * as firebase from 'firebase';
 
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   email: string = "";
   senha: string = "";
 
-  constructor(public navCtrl: NavController, public alertController: AlertController) { 
+  constructor(public navCtrl: NavController, public alertController: AlertController, public toastController: ToastController) { 
 
 
   }
@@ -46,6 +46,15 @@ export class LoginComponent implements OnInit {
   login(){
     firebase.auth().signInWithEmailAndPassword(this.email,this.senha).then((user) => {
       console.log(user)
+      
+      let toast = this.toastController.create({
+        message: "seja bem vindo, " + user.user.displayName,
+        duration: 5000,
+        position: 'top'
+      }).then((toast) =>{
+        toast.present();
+      })
+      
     }).catch((err) => {
       console.log(err)
       this.presentAlerta(err);

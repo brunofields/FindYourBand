@@ -5,11 +5,11 @@
   </ion-header>
 
 <ion-content>
-  <ion-item text-center lines="none">
+  <!-- <ion-item text-center lines="none">
     <ion-label>
       <h1>seja bem vindo ao fyb!</h1>
     </ion-label>
-  </ion-item>
+  </ion-item> -->
   
   <ion-item text-center lines="none">
     <ion-label>
@@ -19,7 +19,7 @@
   
   <form [formGroup]="signUpForm" (ngSubmit)="submitForm()">
     
-    <ion-grid style="width: 75%;">
+    <ion-grid style="width: 80%;">
       <ion-row class="rowStyle">
         <ion-icon name="person" color="danger"></ion-icon>
         <ion-input clearInput="true" type="text" placeholder="seu nome:" formControlName="nome"></ion-input>
@@ -85,5 +85,5 @@
     
   </form>
   
-    <ion-button (click)="gotoLogin()" class="btnStyle" expand="block" fill="clear" color="light">já tem cadastro? faça seu login</ion-button>
+    <ion-button class="padding-bottom: 20px;" (click)="gotoLogin()" class="btnStyle" expand="block" fill="clear" color="light">já tem cadastro? faça seu login</ion-button>
 </ion-content>
