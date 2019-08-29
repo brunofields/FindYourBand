@@ -8,7 +8,9 @@ fyb is an ionic project made by musicians for musicians
 
 ## Installation
 
-Use npm to install fyb.
+Clone this project.
+
+Enter the project's directory and use npm to install fyb's dependencies.
 
 ```bash
 npm install
