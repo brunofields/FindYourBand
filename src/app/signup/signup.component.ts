@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { NavController, AlertController } from '@ionic/angular';
 import * as firebase from 'firebase';
 import { TouchSequence } from 'selenium-webdriver';
+import { text } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-signup',
@@ -185,7 +186,12 @@ export class SignupComponent implements OnInit {
       header: 'sucesso!',
       message: 'você já pode logar agora',
       mode: 'ios',
-      buttons: ['Ok']
+      buttons: [{
+        text: "Ok",
+      handler: () => {
+        this.gotoLogin();
+      }}],
+      
     });
     await alert.present();
   }

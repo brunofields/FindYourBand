@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
         position: 'top'
       }).then((toast) =>{
         toast.present();
+        this.navCtrl.navigateRoot('/dashboard');
       })
       
     }).catch((err) => {
