@@ -11,3 +11,34 @@ ion-list ion-item{
     --ion-background-color: #f4f5f8e0 !important;
     background: #f4f5f8e0 !important;
 }
+
+.rowStyle{
+    padding-left: 15px;
+    border-radius: 50px;
+    border-radius: 25px;
+}
+
+
+.btnStyle{
+    color: #e26c6c;
+    width: 100%;
+    height: 90px;
+    --border-radius: 50px;
+    // border-radius: 60px 60px 60px 60px;
+    // -moz-border-radius: 60px 60px 60px 60px;
+    // -webkit-border-radius: 60px 60px 60px 60px;
+    // border: 0px solid #000000;
+    // -webkit-box-shadow: 10px 10px 15px 5px rgba(0,0,0,0.38);
+    // -moz-box-shadow: 10px 10px 15px 5px rgba(0,0,0,0.38);
+    // box-shadow: 7px 10px 15px 1px rgba(0, 0, 0, 0.38);
+    margin-top: 10%;
+    text-transform: lowercase !important;
+    font-size: 1.2em;
+    // border-width: 1px !important;
+
+    ion-icon{
+        position: absolute;
+        left: 80%;
+        font-size: 50px;
+    }
+}
