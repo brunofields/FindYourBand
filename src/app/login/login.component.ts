@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       let toast = this.toastController.create({
         message: "seja bem vindo, " + user.user.displayName,
         duration: 5000,
-        position: 'top'
+        position: 'bottom'
       }).then((toast) =>{
         toast.present();
         this.navCtrl.navigateRoot('/dashboard');

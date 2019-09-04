@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   };
   
   customAlertOptions: any = {
-    header: 'selecione um ou mais instrumentos:',
+    header: 'selecione um ou mais talentos:',
   };
   
   customAlertOptionsEstilo: any = {
@@ -151,9 +151,21 @@ export class SignupComponent implements OnInit {
       subHeader: 'parece que você não inseriu todos os dados corretamente, campos com erro:',
       message: concatErro,
       mode: 'ios',
-      buttons: ['Ok']
+      buttons: ['ok']
     });
     
+    await alert.present();
+  }
+
+  
+  async welcomeAlert() {
+    
+    const alert = await this.alertController.create({
+      header: 'bem vindo!',
+      message: "olá, seja bem vindo ao fyb! <br> por favor, insira seus dados corretamente :)",
+      mode: 'ios',
+      buttons: ['ok']
+    });
     await alert.present();
   }
   
@@ -175,7 +187,7 @@ export class SignupComponent implements OnInit {
       header: 'ops, algo deu errado!',
       message: message,
       mode: 'ios',
-      buttons: ['Ok']
+      buttons: ['ok']
     });
     await alert.present();
   }
@@ -187,7 +199,7 @@ export class SignupComponent implements OnInit {
       message: 'você já pode logar agora',
       mode: 'ios',
       buttons: [{
-        text: "Ok",
+        text: "ok",
       handler: () => {
         this.gotoLogin();
       }}],
@@ -238,7 +250,7 @@ export class SignupComponent implements OnInit {
   
   
   ngOnInit() {
-    
+    this.welcomeAlert();
   }
   
 }

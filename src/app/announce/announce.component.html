@@ -1,0 +1,62 @@
+<ion-menu side="end">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title color="danger">menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="sideMenu">
+      <ion-list>
+        <a>
+        <ion-item>
+          <ion-icon color="danger" name="home" slot="end"></ion-icon>
+          <ion-label color="danger">dashboard</ion-label>
+        </ion-item>
+      </a>
+        <ion-item>
+          <ion-icon color="danger" name="person" slot="end"></ion-icon>
+          <ion-label color="danger">perfil</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="danger" name="chatbubbles" slot="end"></ion-icon>
+          <ion-label color="danger" >ajuda</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="danger" name="log-out" slot="end"></ion-icon>
+          <ion-label color="danger">logout</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+          <ion-back-button slot="start" color="light"></ion-back-button>
+        <ion-buttons slot="end">
+          <ion-menu-button color="light"></ion-menu-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content padding>
+      <ion-grid style="width: 80%;">
+
+        <ion-title size="medium" style="text-align: center;">o que quer anunciar?</ion-title>
+        
+        <ion-row class="rowStyle" style="border-radius: 50px;">
+          <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+            quero tocar em uma banda
+            <ion-icon name="happy" color="danger"></ion-icon>
+          </ion-button>
+        </ion-row>
+        
+        <ion-row class="rowStyle" style="border-radius: 50px;">
+          <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+            quero anunciar minha banda
+            <ion-icon name="contacts" color="danger"></ion-icon>
+          </ion-button>
+        </ion-row>
+      
+      </ion-grid>
+    </ion-content>
+  </div>

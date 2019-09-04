@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,12 +8,17 @@ import { MenuController } from '@ionic/angular';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public menu: MenuController) { }
+  constructor(public menu: MenuController, public navCtrl: NavController) { }
 
   openFirst() {
     this.menu.enable(true, 'first');
     this.menu.open('first');
   }
+
+  redirectAnnounce(){
+    this.navCtrl.navigateForward('/announce');
+  }
+
   ngOnInit() {}
 
 }

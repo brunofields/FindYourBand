@@ -1,26 +1,26 @@
 <ion-menu side="start">
   <ion-header>
     <ion-toolbar>
-      <ion-title color="danger">Menu</ion-title>
+      <ion-title color="danger">menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="sideMenu">
     <ion-list>
       <ion-item>
         <ion-icon color="danger" name="home" slot="start"></ion-icon>
-        <ion-label color="danger">Dashboard</ion-label>
+        <ion-label color="danger">dashboard</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon color="danger" name="person" slot="start"></ion-icon>
-        <ion-label color="danger">Perfil</ion-label>
+        <ion-label color="danger">perfil</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon color="danger" name="chatbubbles" slot="start"></ion-icon>
-        <ion-label color="danger" >Messages</ion-label>
+        <ion-label color="danger" >ajuda</ion-label>
       </ion-item>
       <ion-item>
         <ion-icon color="danger" name="log-out" slot="start"></ion-icon>
-        <ion-label color="danger">Logout</ion-label>
+        <ion-label color="danger">logout</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>
@@ -29,18 +29,18 @@
 <div class="ion-page" main>
   <ion-header>
     <ion-toolbar>
+      <!-- <img src="../../assets/icon/Logo-Branco.svg" style="display: inline-block; width: 40px; height: 40px; margin-left: 40.5%;"> -->
       <ion-buttons slot="start">
         <ion-menu-button color="light"></ion-menu-button>
       </ion-buttons>
-      <img src="../../assets/icon/Logo-Branco.svg" style="display: inline-block; width: 40px; height: 40px; margin-left: 42%;">
     </ion-toolbar>
   </ion-header>
   
-  <ion-content>
+  <ion-content padding>
     <ion-grid style="width: 80%;">
       
       <ion-row class="rowStyle" style="border-radius: 50px;">
-        <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+        <ion-button (click)="redirectAnnounce()" class="btnStyle" color="light" style="border-radius: 50px !important;">
           anunciar
           <ion-icon name="person-add" color="danger"></ion-icon>
         </ion-button>
@@ -59,13 +59,13 @@
           <ion-icon name="star" color="danger"></ion-icon>
         </ion-button>
       </ion-row>
-
+      
       <ion-row class="rowStyle" style="border-radius: 50px;">
-          <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
-            ajuda
-            <ion-icon name="help-circle" color="danger"></ion-icon>
-          </ion-button>
-        </ion-row>
+        <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+          ajuda
+          <ion-icon name="help-circle" color="danger"></ion-icon>
+        </ion-button>
+      </ion-row>
       
     </ion-grid>
   </ion-content>

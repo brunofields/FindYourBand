@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms'
 import { LoginComponent } from './login/login.component'
 import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AnnounceComponent } from './announce/announce.component';
 
 import * as firebase from 'firebase';
 
@@ -27,7 +28,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent, DashboardComponent],
+  declarations: [AppComponent, LoginComponent, SignupComponent, DashboardComponent, AnnounceComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule, FormsModule],
   providers: [
