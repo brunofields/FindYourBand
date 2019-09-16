@@ -43,8 +43,6 @@ ion-content{
             -webkit-appearance: none; 
             margin: 0; 
         }   
-        
-        
     }
     
     .rowStyleSelect{
@@ -59,8 +57,15 @@ ion-content{
             margin-top: 13px;
         }
         
-        
-        
+        input[type="date"]:before {
+            content: attr(placeholder) !important;
+            color: #aaa;
+            margin-right: 0.5em;
+          }
+          input[type="date"]:focus:before,
+          input[type="date"]:valid:before {
+            content: "";
+          }
     }
 
     .turnRed{

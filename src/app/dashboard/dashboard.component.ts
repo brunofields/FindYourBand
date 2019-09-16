@@ -10,9 +10,9 @@ export class DashboardComponent implements OnInit {
 
   constructor(public menu: MenuController, public navCtrl: NavController) { }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
+  openDashMenu() {
+    this.menu.enable(true, 'dashboardMenu');
+    this.menu.open('dashboardMenu');
   }
 
   redirectAnnounce(){

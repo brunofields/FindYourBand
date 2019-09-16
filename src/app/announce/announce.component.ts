@@ -11,10 +11,12 @@ export class AnnounceComponent implements OnInit {
 
   constructor(public menu: MenuController) { }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
+  openAnnounceMenu() {
+    this.menu.enable(true, 'announceMenu');
+    this.menu.open('announceMenu');
   }
+
+
   ngOnInit() {}
 
 }
