@@ -1,63 +1,69 @@
-<ion-menu menuId="announceMenu" side="end">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title color="danger">menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="sideMenu">
-    <ion-list>
+  <ion-menu menuId="announceMenu" side="end">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title color="danger">menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="sideMenu">
+      <ion-list>
+          <ion-item>
+            <ion-icon color="danger" name="home" slot="end"></ion-icon>
+            <ion-label color="danger">dashboard</ion-label>
+          </ion-item>
         <ion-item>
-          <ion-icon color="danger" name="home" slot="end"></ion-icon>
-          <ion-label color="danger">dashboard</ion-label>
+          <ion-icon color="danger" name="person" slot="end"></ion-icon>
+          <ion-label color="danger">perfil</ion-label>
         </ion-item>
-      <ion-item>
-        <ion-icon color="danger" name="person" slot="end"></ion-icon>
-        <ion-label color="danger">perfil</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-icon color="danger" name="chatbubbles" slot="end"></ion-icon>
-        <ion-label color="danger" >ajuda</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-icon color="danger" name="log-out" slot="end"></ion-icon>
-        <ion-label color="danger">logout</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+        <ion-item>
+          <ion-icon color="danger" name="chatbubbles" slot="end"></ion-icon>
+          <ion-label color="danger" >ajuda</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon color="danger" name="log-out" slot="end"></ion-icon>
+          <ion-label color="danger">logout</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
 
-<div class="ion-page" main>
-  <ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="" color="light"></ion-back-button>
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+          <ion-buttons slot="start">
+              <ion-back-button defaultHref="" color="light"></ion-back-button>
+          </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-menu-button color="light"></ion-menu-button>
         </ion-buttons>
-      <ion-buttons slot="end">
-        <ion-menu-button color="light"></ion-menu-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content padding>
 
-    <ion-grid style="width: 80%;">
-      
-      <ion-title size="medium" style="text-align: center;">o que quer anunciar?</ion-title>
-      
-      <ion-row class="rowStyle" style="border-radius: 50px;">
-        <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
-          quero tocar em uma banda
-          <ion-icon name="happy" color="danger"></ion-icon>
-        </ion-button>
-      </ion-row>
-      
-      <ion-row class="rowStyle" style="border-radius: 50px;">
-        <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
-          quero anunciar minha banda
-          <ion-icon name="contacts" color="danger"></ion-icon>
-        </ion-button>
-      </ion-row>
-      
-    </ion-grid>
-  </ion-content>
-</div>
+      <ion-grid style="width: 100%;">
+        
+        <ion-title size="medium" style="text-align: center;">o que quer fazer?</ion-title>
+        
+        <ion-row class="rowStyle" style="border-radius: 50px;">
+          <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+            tocar em uma banda
+            <ion-icon name="happy" color="danger"></ion-icon>
+          </ion-button>
+        </ion-row>
+        
+        <ion-row class="rowStyle" style="border-radius: 50px;">
+          <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+            anunciar minha banda
+            <ion-icon name="contacts" color="danger"></ion-icon>
+          </ion-button>
+        </ion-row>
+
+        <!-- <ion-row> 
+          <ion-button class="btnTransparent" fill="clear" style="height:50px;">
+              <ion-icon style="height:50px; width: 50px;" color="light" name="help-circle"></ion-icon>
+          </ion-button>
+        </ion-row>
+         -->
+      </ion-grid>
+    </ion-content>
+  </div>

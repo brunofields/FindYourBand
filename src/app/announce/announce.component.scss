@@ -1,5 +1,5 @@
 ion-title{
-    font-size: 25px;
+    font-size: 23px;
     color: #f4f5f8e0;
 }
 
@@ -17,6 +17,11 @@ ion-list ion-item{
     border-radius: 25px;
 }
 
+.btnTransparent{
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+}
 
 .btnStyle{
     color: #e26c6c;
