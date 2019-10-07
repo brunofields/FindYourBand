@@ -90,17 +90,17 @@ export class SignupComponent implements OnInit {
     {nome: "Velha Guarda"},
   ]
   
-  private signUpForm : FormGroup;
+  public signUpForm : FormGroup;
   public submitAttempt: boolean = false;
   
   constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public alertController: AlertController) { 
     this.signUpForm = this.formBuilder.group({
       nome: new FormControl('', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])),
       genero: new FormControl('', Validators.compose([Validators.required])),
-      data: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
-      telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)])),
-      talento: new FormControl('', Validators.compose([Validators.required])),
-      estilos: new FormControl('', Validators.compose([Validators.required])),
+      // data: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
+      // telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)])),
+      // talento: new FormControl('', Validators.compose([Validators.required])),
+      // estilos: new FormControl('', Validators.compose([Validators.required])),
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
       senha: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
       confirmaSenha: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -120,21 +120,21 @@ export class SignupComponent implements OnInit {
       concatErro += '<br>gênero<span style="color: red; font-weight:700">*</span>' 
     }
     
-    if(!this.signUpForm.get('data').valid){
-      concatErro += '<br>data de nascimento<span style="color: red; font-weight:700">*</span>' 
-    }
+    // if(!this.signUpForm.get('data').valid){
+    //   concatErro += '<br>data de nascimento<span style="color: red; font-weight:700">*</span>' 
+    // }
     
-    if(!this.signUpForm.get('telefone').valid){
-      concatErro += '<br>telefone<span style="color: red; font-weight:700">*</span>' 
-    }
+    // if(!this.signUpForm.get('telefone').valid){
+    //   concatErro += '<br>telefone<span style="color: red; font-weight:700">*</span>' 
+    // }
     
-    if(!this.signUpForm.get('talento').valid){
-      concatErro += '<br>talento<span style="color: red; font-weight:700">*</span>' 
-    }
+    // if(!this.signUpForm.get('talento').valid){
+    //   concatErro += '<br>talento<span style="color: red; font-weight:700">*</span>' 
+    // }
     
-    if(!this.signUpForm.get('estilos').valid){
-      concatErro += '<br>estilo musical<span style="color: red; font-weight:700">*</span>' 
-    }
+    // if(!this.signUpForm.get('estilos').valid){
+    //   concatErro += '<br>estilo musical<span style="color: red; font-weight:700">*</span>' 
+    // }
     
     if(!this.signUpForm.get('email').valid){
       concatErro += '<br>email<span style="color: red; font-weight:700">*</span>' 
@@ -236,6 +236,13 @@ export class SignupComponent implements OnInit {
           displayName: this.signUpForm.get('nome').value,
           photoURL: "",
         }).then((res) => {
+          // firebase.firestore().collection('usuarios').add({
+          //   nome: this.signUpForm.get('nome').value,
+          //   telefone: this.signUpForm.get('telefone').value,
+          //   talento: this.signUpForm.get('talento').value,
+          //   estilos: this.signUpForm.get('estilos').value,
+          //   genero: this.signUpForm.get('genero').value,
+          // })
           this.AlertaCriado();
         }).catch((err) => {
           console.log(err)
