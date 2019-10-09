@@ -27,9 +27,17 @@ ion-list ion-item{
   ion-slide > h2 {
     margin-top: 2.0rem;
   }
+
   ion-slide > img {
     max-height: 50%;
+    max-width: 45%;
+    margin: 36px 0;
+  }
+
+  ion-icon {
+    max-height: 50%;
     max-width: 60%;
+    font-size: 170px;
     margin: 36px 0;
   }
 
