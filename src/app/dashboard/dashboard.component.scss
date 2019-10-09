@@ -23,21 +23,13 @@ ion-list ion-item{
     width: 100%;
     height: 90px;
     --border-radius: 50px;
-    // border-radius: 60px 60px 60px 60px;
-    // -moz-border-radius: 60px 60px 60px 60px;
-    // -webkit-border-radius: 60px 60px 60px 60px;
-    // border: 0px solid #000000;
-    // -webkit-box-shadow: 10px 10px 15px 5px rgba(0,0,0,0.38);
-    // -moz-box-shadow: 10px 10px 15px 5px rgba(0,0,0,0.38);
-    // box-shadow: 7px 10px 15px 1px rgba(0, 0, 0, 0.38);
-    margin-top: 10%;
+    margin-top: 6%;
     text-transform: lowercase !important;
-    font-size: 1.2em;
-    // border-width: 1px !important;
+    font-size: 1em;
 
     ion-icon{
         position: absolute;
-        left: 70%;
-        font-size: 50px;
+        left: 10%;
+        font-size: 35px;    
     }
 }
