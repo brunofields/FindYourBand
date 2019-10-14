@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { NavController, AlertController } from '@ionic/angular';
+import { NavController, AlertController, LoadingController } from '@ionic/angular';
 import * as firebase from 'firebase';
 import { TouchSequence } from 'selenium-webdriver';
 import { text } from '@angular/core/src/render3';
@@ -93,7 +93,7 @@ export class SignupComponent implements OnInit {
   public signUpForm : FormGroup;
   public submitAttempt: boolean = false;
   
-  constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public alertController: AlertController) { 
+  constructor(public loadingCtrl: LoadingController, public formBuilder: FormBuilder, public navCtrl: NavController, public alertController: AlertController) { 
     this.signUpForm = this.formBuilder.group({
       nome: new FormControl('', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])),
       genero: new FormControl('', Validators.compose([Validators.required])),
@@ -211,11 +211,26 @@ export class SignupComponent implements OnInit {
   gotoLogin(){
     this.navCtrl.navigateBack('/');
   }
+
+  
+  async presentLoading() {
+    const loading = await this.loadingCtrl.create({
+      spinner: 'crescent',
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+
+  }
   
   submitForm(){
 
     this.submitAttempt = true;
-
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      duration: 2000
+    });
     
       if(this.signUpForm.get('senha').value != this.signUpForm.get('confirmaSenha').value){
         this.presentAlerta('senhaigual');
@@ -228,7 +243,9 @@ export class SignupComponent implements OnInit {
     }   else {
       
       firebase.auth().createUserWithEmailAndPassword(this.signUpForm.get('email').value,this.signUpForm.get('senha').value)
-      .then((data) => {
+      .then( (data) => {
+        this.presentLoading();
+        
         console.log(data)
         
         let newUser: firebase.User = data.user;
