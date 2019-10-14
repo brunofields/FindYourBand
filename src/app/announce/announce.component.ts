@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as firebase from 'firebase';
 import { MenuController, NavController } from '@ionic/angular';
 
 @Component({
@@ -21,6 +22,9 @@ export class AnnounceComponent implements OnInit {
     this.navCtrl.navigateForward(link);
   }
 
+    logout(){
+      firebase.auth().signOut();
+    }
 
   ngOnInit() {}
 

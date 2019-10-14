@@ -1,3 +1,4 @@
+import { MenuController, NavController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnnounceBandComponent implements OnInit {
 
-  constructor() { }
+  constructor(public menu: MenuController, public navCtrl: NavController) { }
+
+  openAnnounceMenu() {
+    this.menu.enable(true, 'announceMenu');
+    this.menu.open('announceMenu');
+  }
+
+  
+  redirectAnnounce(link){
+    this.navCtrl.navigateForward(link);
+  }
 
   ngOnInit() {}
 
