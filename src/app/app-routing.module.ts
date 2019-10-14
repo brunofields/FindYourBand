@@ -1,3 +1,5 @@
+import { AnnounceBandComponent } from './announce-band/announce-band.component';
+import { AnnouncePlayerComponent } from './announce-player/announce-player.component';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component'
@@ -10,6 +12,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'announce', component: AnnounceComponent },
+  { path: 'announce-player', component: AnnouncePlayerComponent },
+  { path: 'announce-band', component: AnnounceBandComponent },
 ];
 
 @NgModule({

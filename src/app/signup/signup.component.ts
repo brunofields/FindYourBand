@@ -246,7 +246,7 @@ export class SignupComponent implements OnInit {
       .then( (data) => {
         this.presentLoading();
         
-        console.log(data)
+        console.log(data);
         
         let newUser: firebase.User = data.user;
         newUser.updateProfile({

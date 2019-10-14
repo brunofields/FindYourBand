@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-announce',
@@ -9,11 +9,16 @@ import { MenuController } from '@ionic/angular';
 export class AnnounceComponent implements OnInit {
 
 
-  constructor(public menu: MenuController) { }
+  constructor(public menu: MenuController, public navCtrl: NavController) { }
 
   openAnnounceMenu() {
     this.menu.enable(true, 'announceMenu');
     this.menu.open('announceMenu');
+  }
+
+  
+  redirectAnnounce(link){
+    this.navCtrl.navigateForward(link);
   }
 
 

@@ -1,76 +1,83 @@
-  <ion-menu menuId="announceMenu" side="end">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title color="danger">menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="sideMenu">
-      <ion-list>
-          <ion-item>
-            <ion-icon color="danger" name="home" slot="end"></ion-icon>
-            <ion-label color="danger">dashboard</ion-label>
-          </ion-item>
-        <ion-item>
-          <ion-icon color="danger" name="person" slot="end"></ion-icon>
-          <ion-label color="danger">perfil</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon color="danger" name="chatbubbles" slot="end"></ion-icon>
-          <ion-label color="danger" >ajuda</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-icon color="danger" name="log-out" slot="end"></ion-icon>
-          <ion-label color="danger">logout</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
+      <ion-menu menuId="announceMenu" side="end">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title color="danger">menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="sideMenu">
+          <ion-list>
+              <ion-item>
+                <ion-icon color="danger" name="home" slot="end"></ion-icon>
+                <ion-label color="danger">dashboard</ion-label>
+              </ion-item>
+            <ion-item>
+              <ion-icon color="danger" name="person" slot="end"></ion-icon>
+              <ion-label color="danger">perfil</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon color="danger" name="chatbubbles" slot="end"></ion-icon>
+              <ion-label color="danger" >ajuda</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-icon color="danger" name="log-out" slot="end"></ion-icon>
+              <ion-label color="danger">logout</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-menu>
 
-  <div class="ion-page" main>
-    <ion-header>
-      <ion-toolbar>
-          <ion-buttons slot="start">
-              <ion-back-button defaultHref="" color="light"></ion-back-button>
-          </ion-buttons>
-        <ion-buttons slot="end">
-          <ion-menu-button color="light"></ion-menu-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    
-    <ion-content fullscreen padding scroll-y="false">
-      <ion-slides>
+      <div class="ion-page" main>
+        <ion-header>
+          <ion-toolbar>
+              <ion-buttons slot="start">
+                  <ion-back-button defaultHref="" color="light"></ion-back-button>
+              </ion-buttons>
+            <ion-buttons slot="end">
+              <ion-menu-button color="light"></ion-menu-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        
+        <ion-content fullscreen padding scroll-y="false">
+          <ion-slides>
 
-        <ion-slide>
-          <img src="./../../assets/icon/Logo-Branco.svg">
-          <h2>bem vindo ao fyb!</h2>
-          <p>agora ficou muito mais fácil de encontrar a banda certa pra você, à seguir você verá como anunciar seu talento ou uma oportunidade em sua banda.</p>
-        </ion-slide>
+            <ion-slide>
+              <img src="./../../assets/icon/Logo-Branco.svg">
+              <h2>bem vindo ao fyb!</h2>
+              <p>agora ficou muito mais fácil de encontrar a banda certa pra você, à seguir você verá como anunciar seu talento ou uma oportunidade em sua banda.</p>
+            </ion-slide>
 
-        <ion-slide>
-          <ion-icon name="man" color="light"></ion-icon>
-          <h2>anunciar talento</h2>
-          <p>ao selecionar a opção de anunciar talento, você preencherá o formulário com seus dados para que outras bandas te encontrem</p>
-        </ion-slide>
+            <ion-slide>
+              <ion-icon class="iconSlide" name="man" color="light"></ion-icon>
+              <h2>anunciar talento</h2>
+              <p>ao selecionar a opção de anunciar talento, você preencherá o formulário com seus dados para que outras bandas te encontrem</p>
+            </ion-slide>
 
-        <ion-slide>
-          <ion-icon name="star-outline" color="light"></ion-icon>
-          <h2>anunciar vaga</h2>
-          <p>caso você tenha uma banda e esteja precisando de algum músico, você pode anunciar sua banda e a oportunidade desejada</p>
-        </ion-slide> 
+            <ion-slide>
+              <ion-icon class="iconSlide" name="star-outline" color="light"></ion-icon>
+              <h2>anunciar vaga</h2>
+              <p>caso você tenha uma banda e esteja precisando de algum músico, você pode anunciar sua banda e a oportunidade desejada</p>
+            </ion-slide> 
 
-        <ion-slide>
-          <ion-icon name="logo-whatsapp" color="light"></ion-icon>
-          <h2>já anunciei, e agora?</h2>
-          <p>agora, é só esperar que entrarão em contato diretamente com você, portanto preencha os seus dados corretamente! </p>
-        </ion-slide> 
+            <ion-slide>
+              <ion-icon class="iconSlide" name="logo-whatsapp" color="light"></ion-icon>
+              <h2>já anunciei, e agora?</h2>
+              <p>agora, é só esperar que entrarão em contato diretamente com você, portanto preencha os seus dados corretamente! </p>
+            </ion-slide> 
 
-        <ion-slide>
-          <ion-icon name="paper-plane" color="light"></ion-icon>
-          <h2>vamos começar?</h2>
-          <ion-button fill="clear" color="light">continuar <ion-icon slot="end" name="arrow-forward" color="light"></ion-icon></ion-button>
-        </ion-slide> 
+            <ion-slide>
+              <ion-icon class="iconSlide" name="paper-plane" color="light"></ion-icon>
+              <h2>vamos começar?</h2>
+              <p>à seguir, escolha o tipo de anúncio que você precisa realizar</p>
+              <!-- <ion-button class="btnStyle" color="light">continuar <ion-icon class="iconStyle" name="arrow-forward" color="danger"></ion-icon></ion-button> -->
+            </ion-slide> 
 
-      </ion-slides>
-    </ion-content>
-  </div>
+            <ion-slide>
+              <h2>o que quer anúnciar?</h2>
+              <ion-button (click)="redirectAnnounce('/announce-player')" class="btnStyle" color="light">meu talento<ion-icon class="iconStyle" name="arrow-forward" color="danger"></ion-icon></ion-button>
+              <ion-button (click)="redirectAnnounce('/announce-band')" class="btnStyle" color="light">minha vaga<ion-icon class="iconStyle" name="arrow-forward" color="danger"></ion-icon></ion-button>
+            </ion-slide> 
+
+          </ion-slides>
+        </ion-content>
+      </div>
