@@ -28,6 +28,7 @@ import { AnnounceBandComponent } from './announce-band/announce-band.component';
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  firebase.firestore().settings({ timestampsInSnapshots: true});
 
   @NgModule({
     declarations: [AppComponent, 

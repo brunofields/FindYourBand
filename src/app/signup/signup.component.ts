@@ -97,8 +97,8 @@ export class SignupComponent implements OnInit {
     this.signUpForm = this.formBuilder.group({
       nome: new FormControl('', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])),
       genero: new FormControl('', Validators.compose([Validators.required])),
-      // data: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
-      // telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)])),
+      data: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
+      telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)])),
       // talento: new FormControl('', Validators.compose([Validators.required])),
       // estilos: new FormControl('', Validators.compose([Validators.required])),
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
@@ -252,14 +252,18 @@ export class SignupComponent implements OnInit {
         newUser.updateProfile({
           displayName: this.signUpForm.get('nome').value,
           photoURL: "",
+          
         }).then((res) => {
-          // firebase.firestore().collection('usuarios').add({
-          //   nome: this.signUpForm.get('nome').value,
-          //   telefone: this.signUpForm.get('telefone').value,
-          //   talento: this.signUpForm.get('talento').value,
-          //   estilos: this.signUpForm.get('estilos').value,
-          //   genero: this.signUpForm.get('genero').value,
-          // })
+          firebase.firestore().collection('usuarios').add({
+            nome: this.signUpForm.get('nome').value,
+            telefone: this.signUpForm.get('telefone').value,
+            // talento: this.signUpForm.get('talento').value,
+            // estilos: this.signUpForm.get('estilos').value,
+            genero: this.signUpForm.get('genero').value,
+            userId: newUser.uid
+          }).then((doc) => {
+            console.log(doc);
+          })
           this.AlertaCriado();
         }).catch((err) => {
           console.log(err)
