@@ -1,39 +1,58 @@
 <ion-header>
   <ion-toolbar color="danger">
     <ion-back-button color="light"></ion-back-button>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    
-    <form [formGroup]="signUpForm" (ngSubmit)="submitForm()" style="margin-top: 20px;">
-      
-      <ion-grid style="width: 80%;">
-        <ion-row class="rowStyle">
-          <ion-icon name="person" color="danger"></ion-icon>
-          <ion-input clearInput="true" type="text" placeholder="seu nome:" formControlName="nome"></ion-input>
-        </ion-row> 
-        
-        <ion-row class="rowStyleSelect">
-          <ion-icon name="people" color="danger"></ion-icon>
-          <ion-select style="width: 90%" mode="ios" [interfaceOptions]="customPopoverOptions" cancelText="Cancelar" okText="Feito!" interface="alert" placeholder="gênero:" formControlName="genero">
-            <ion-select-option value="masculino">masculino</ion-select-option>
-            <ion-select-option value="feminino">feminino</ion-select-option>
-            <ion-select-option value="outro">outro</ion-select-option>
-          </ion-select>
-        </ion-row>  
-        
-        <ion-row class="rowStyle">
-          <ion-icon name="calendar" color="danger"></ion-icon>
-          <!-- <ion-input type="date" placeholder="data de nascimento:" formControlName="data"></ion-input> -->
-          <ion-datetime formControlName="data" placeholder="data de nascimento:"></ion-datetime>
-        </ion-row>  
-        
-         <!-- <ion-row class="rowStyle">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form
+    [formGroup]="signUpForm"
+    (ngSubmit)="submitForm()"
+    style="margin-top: 20px;"
+  >
+    <ion-grid style="width: 80%;">
+      <ion-row class="rowStyle">
+        <ion-icon name="person" color="danger"></ion-icon>
+        <ion-input
+          clearInput="true"
+          type="text"
+          placeholder="seu nome:"
+          formControlName="nome"
+        ></ion-input>
+      </ion-row>
+
+      <ion-row class="rowStyleSelect">
+        <ion-icon name="people" color="danger"></ion-icon>
+        <ion-select
+          style="width: 90%"
+          mode="ios"
+          [interfaceOptions]="customPopoverOptions"
+          cancelText="Cancelar"
+          okText="Feito!"
+          interface="alert"
+          placeholder="gênero:"
+          formControlName="genero"
+        >
+          <ion-select-option value="masculino">masculino</ion-select-option>
+          <ion-select-option value="feminino">feminino</ion-select-option>
+          <ion-select-option value="outro">outro</ion-select-option>
+        </ion-select>
+      </ion-row>
+
+      <ion-row class="rowStyle">
+        <ion-icon name="calendar" color="danger"></ion-icon>
+        <!-- <ion-input type="date" placeholder="data de nascimento:" formControlName="data"></ion-input> -->
+        <ion-datetime
+          formControlName="data"
+          placeholder="data de nascimento:"
+        ></ion-datetime>
+      </ion-row>
+
+      <!-- <ion-row class="rowStyle">
           <ion-icon name="call" color="danger"></ion-icon>
           <ion-input clearInput="true" style="width: 90%;" type="tel" maxLength="11" placeholder="contato:" formControlName="telefone"></ion-input>
         </ion-row>  -->
-        <!--
+      <!--
         <ion-row class="rowStyleSelect">
           <ion-icon name="microphone" color="danger"></ion-icon>
           <ion-select  clearInput="true" style="width: 90%" multiple="true" mode="ios" cancelText="Cancelar" okText="Feito!" [interfaceOptions]="customAlertOptions" interface="alert" placeholder="talentos:" formControlName="talento">
@@ -48,31 +67,55 @@
           </ion-select>
         </ion-row>  
          -->
-        <ion-row class="rowStyle">
-          <ion-icon name="mail" color="danger"></ion-icon>
-          <ion-input clearInput="true" type="email" placeholder="email:" formControlName="email"></ion-input>
-        </ion-row>    
-        
-        <ion-row class="rowStyle">
-          <ion-icon name="key" color="danger"></ion-icon>
-          <ion-input clearInput="true" type="password" formControlName="senha" placeholder="senha:"></ion-input>
-        </ion-row>
-        
-        <ion-row class="rowStyle">
-          <ion-icon name="key" color="danger"></ion-icon>
-          <ion-input clearInput="true" type="password" formControlName="confirmaSenha" placeholder="confirmar senha:"></ion-input>
-        </ion-row>
-        
-        <ion-row>
-          <ion-button type="submit" class="btnStyle" expand="block" shape="round" fill="outline" color="light">
-            próximo
-            <ion-icon style="position: absolute; left: 90%;" name="arrow-round-forward" color="light"></ion-icon>
-          </ion-button>
-        </ion-row>
-        
-      </ion-grid>
-      
-    </form>
-    
-    <!-- <ion-button class="padding-bottom: 20px;" (click)="gotoLogin()" class="btnStyle" expand="block" fill="clear" color="light">já tem cadastro? faça seu login</ion-button> -->
-  </ion-content>
+      <ion-row class="rowStyle">
+        <ion-icon name="mail" color="danger"></ion-icon>
+        <ion-input
+          clearInput="true"
+          type="email"
+          placeholder="email:"
+          formControlName="email"
+        ></ion-input>
+      </ion-row>
+
+      <ion-row class="rowStyle">
+        <ion-icon name="key" color="danger"></ion-icon>
+        <ion-input
+          clearInput="true"
+          type="password"
+          formControlName="senha"
+          placeholder="senha:"
+        ></ion-input>
+      </ion-row>
+
+      <ion-row class="rowStyle">
+        <ion-icon name="key" color="danger"></ion-icon>
+        <ion-input
+          clearInput="true"
+          type="password"
+          formControlName="confirmaSenha"
+          placeholder="confirmar senha:"
+        ></ion-input>
+      </ion-row>
+
+      <ion-row>
+        <ion-button
+          type="submit"
+          class="btnStyle"
+          expand="block"
+          shape="round"
+          fill="outline"
+          color="light"
+        >
+          próximo
+          <ion-icon
+            style="position: absolute; left: 90%;"
+            name="arrow-round-forward"
+            color="light"
+          ></ion-icon>
+        </ion-button>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+  <!-- <ion-button class="padding-bottom: 20px;" (click)="gotoLogin()" class="btnStyle" expand="block" fill="clear" color="light">já tem cadastro? faça seu login</ion-button> -->
+</ion-content>
