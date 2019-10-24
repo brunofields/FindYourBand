@@ -39,6 +39,10 @@ ion-content{
             margin-right: 5px;
         }
         
+        ion-textarea{
+            height: 10rem;
+        }
+
         ion-input[type=number]::-webkit-inner-spin-button, 
         ion-input[type=number]::-webkit-outer-spin-button { 
             -webkit-appearance: none; 

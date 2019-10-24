@@ -36,11 +36,16 @@
               <ion-select-option multiple *ngFor="let estiloMusical of estilosMusicais" value="{{estiloMusical.nome}}">{{estiloMusical.nome}}</ion-select-option>
             </ion-select>
           </ion-row>  
+
+          <ion-row class="rowStyle">
+            <ion-icon name="create" color="danger"></ion-icon>
+            <ion-textarea clearInput="true" style="width: 90%;" formControlName="descricao" placeholder="descrição: "></ion-textarea>
+          </ion-row>
           
           <ion-row>
             <ion-button type="submit" class="btnStyle" expand="block" shape="round" fill="outline" color="light">
-              próximo
-              <ion-icon style="position: absolute; left: 90%;" name="arrow-round-forward" color="light"></ion-icon>
+              anunciar
+              <!-- <ion-icon style="position: absolute; left: 80%;" name="arrow-round-forward" color="light"></ion-icon> -->
             </ion-button>
           </ion-row>
           
