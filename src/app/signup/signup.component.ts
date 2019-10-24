@@ -98,7 +98,7 @@ export class SignupComponent implements OnInit {
       nome: new FormControl('', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.required])),
       genero: new FormControl('', Validators.compose([Validators.required])),
       data: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)])),
-      telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)])),
+      // telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)])),
       // talento: new FormControl('', Validators.compose([Validators.required])),
       // estilos: new FormControl('', Validators.compose([Validators.required])),
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
@@ -124,9 +124,9 @@ export class SignupComponent implements OnInit {
       concatErro += '<br>data de nascimento<span style="color: red; font-weight:700">*</span>' 
     }
     
-    if(!this.signUpForm.get('telefone').valid){
-      concatErro += '<br>telefone<span style="color: red; font-weight:700">*</span>' 
-    }
+    // if(!this.signUpForm.get('telefone').valid){
+    //   concatErro += '<br>telefone<span style="color: red; font-weight:700">*</span>' 
+    // }
     
     // if(!this.signUpForm.get('talento').valid){
     //   concatErro += '<br>talento<span style="color: red; font-weight:700">*</span>' 
@@ -216,7 +216,7 @@ export class SignupComponent implements OnInit {
   async presentLoading() {
     const loading = await this.loadingCtrl.create({
       spinner: 'crescent',
-      duration: 2000
+      duration: 1200
     });
     await loading.present();
 
@@ -229,7 +229,7 @@ export class SignupComponent implements OnInit {
     this.submitAttempt = true;
     let loading = this.loadingCtrl.create({
       spinner: 'crescent',
-      duration: 2000
+      duration: 1200
     });
     
       if(this.signUpForm.get('senha').value != this.signUpForm.get('confirmaSenha').value){
@@ -256,7 +256,7 @@ export class SignupComponent implements OnInit {
         }).then((res) => {
           firebase.firestore().collection('usuarios').add({
             nome: this.signUpForm.get('nome').value,
-            telefone: this.signUpForm.get('telefone').value,
+            // telefone: this.signUpForm.get('telefone').value,
             // talento: this.signUpForm.get('talento').value,
             // estilos: this.signUpForm.get('estilos').value,
             genero: this.signUpForm.get('genero').value,
