@@ -54,7 +54,7 @@
               <ion-select-option multiple *ngFor="let talento of talentos" value="{{talento.nome}}" >{{talento.nome}}</ion-select-option>
             </ion-select>
           </ion-row>
-          
+
           <ion-row class="rowStyleSelect">
             <ion-icon name="musical-notes" color="danger"></ion-icon>
             <ion-select  clearInput="true" style="width: 90%" multiple="true" mode="ios" cancelText="Cancelar" okText="Feito!" [interfaceOptions]="customAlertOptionsEstilo" interface="alert" placeholder="estilos musicais:" formControlName="estilos">

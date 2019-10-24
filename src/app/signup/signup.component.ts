@@ -120,13 +120,13 @@ export class SignupComponent implements OnInit {
       concatErro += '<br>gênero<span style="color: red; font-weight:700">*</span>' 
     }
     
-    // if(!this.signUpForm.get('data').valid){
-    //   concatErro += '<br>data de nascimento<span style="color: red; font-weight:700">*</span>' 
-    // }
+    if(!this.signUpForm.get('data').valid){
+      concatErro += '<br>data de nascimento<span style="color: red; font-weight:700">*</span>' 
+    }
     
-    // if(!this.signUpForm.get('telefone').valid){
-    //   concatErro += '<br>telefone<span style="color: red; font-weight:700">*</span>' 
-    // }
+    if(!this.signUpForm.get('telefone').valid){
+      concatErro += '<br>telefone<span style="color: red; font-weight:700">*</span>' 
+    }
     
     // if(!this.signUpForm.get('talento').valid){
     //   concatErro += '<br>talento<span style="color: red; font-weight:700">*</span>' 
@@ -260,6 +260,7 @@ export class SignupComponent implements OnInit {
             // talento: this.signUpForm.get('talento').value,
             // estilos: this.signUpForm.get('estilos').value,
             genero: this.signUpForm.get('genero').value,
+            dtNascimento: this.signUpForm.get('data').value,
             userId: newUser.uid
           }).then((doc) => {
             console.log(doc);
