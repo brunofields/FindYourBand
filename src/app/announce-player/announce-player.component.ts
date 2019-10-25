@@ -27,7 +27,6 @@ export class AnnouncePlayerComponent implements OnInit {
         descricao: new FormControl("", Validators.compose([Validators.required])),
         telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)]))
       },
-      {}
     );
   }
 
