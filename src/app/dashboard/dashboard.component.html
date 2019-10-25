@@ -41,14 +41,14 @@
     <ion-grid style="width: 100%;">
       
       <ion-row class="rowStyle" style="border-radius: 50px;">
-        <ion-button (click)="redirectAnnounce()" class="btnStyle" color="light" style="border-radius: 50px !important;">
+        <ion-button (click)="redirect('/announce')" class="btnStyle" color="light" style="border-radius: 50px !important;">
           anunciar
           <ion-icon name="person-add" color="danger"></ion-icon>
         </ion-button>
       </ion-row>
       
       <ion-row class="rowStyle" style="border-radius: 50px;">
-        <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+        <ion-button (click)="redirect('/search')" class="btnStyle" color="light" style="border-radius: 50px !important;">
           buscar
           <ion-icon name="search" color="danger"></ion-icon>
         </ion-button>

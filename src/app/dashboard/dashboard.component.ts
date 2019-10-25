@@ -15,8 +15,8 @@ export class DashboardComponent implements OnInit {
     this.menu.open('dashboardMenu');
   }
 
-  redirectAnnounce(){
-    this.navCtrl.navigateForward('/announce');
+  redirect(url){
+    this.navCtrl.navigateForward(url);
   }
 
   ngOnInit() {}
