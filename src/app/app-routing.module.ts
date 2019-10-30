@@ -1,3 +1,4 @@
+import { ShowsComponent } from './shows/shows.component';
 import { HelpPlayerComponent } from './help-player/help-player.component';
 import { HelpComponent } from './help/help.component';
 import { SearchComponent } from "./search/search.component";
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: "search", component: SearchComponent },
   { path: "help", component: HelpComponent },
   { path: "help-player", component: HelpPlayerComponent },
-  { path: "help-band", component: HelpBandComponent }
+  { path: "help-band", component: HelpBandComponent },
+  { path: "shows", component: ShowsComponent }
 ];
 
 @NgModule({

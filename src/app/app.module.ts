@@ -1,3 +1,4 @@
+import { ShowsComponent } from './shows/shows.component';
 import { SearchComponent } from './search/search.component';
 import { AnnouncePlayerComponent } from "./announce-player/announce-player.component";
 import { AnnounceBandComponent } from "./announce-band/announce-band.component";
@@ -45,7 +46,8 @@ firebase.initializeApp(firebaseConfig);
     SearchComponent,
     HelpBandComponent,
     HelpComponent,
-    HelpPlayerComponent
+    HelpPlayerComponent,
+    ShowsComponent
   ],
   entryComponents: [],
   imports: [

@@ -39,81 +39,28 @@
   </ion-header>
 
   <ion-content fullscreen padding scroll-y="false">
-    <ion-slides>
-      <ion-slide>
-        <img src="./../../assets/icon/Logo-Branco.svg" />
-        <h2>buscar anúncios</h2>
-        <p>
-          à seguir, você verá como visualizar os anúncios registrados pelos
-          nossos fybers, vamos lá?
-        </p>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-icon class="iconSlide" name="man" color="light"></ion-icon>
-        <h2>buscar talento</h2>
-        <p>
-          nessa opção você pode visualizar todo o nosso banco de talentos,
-          filtrando pela caracteristica que desejar!
-        </p>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-icon
-          class="iconSlide"
-          name="star-outline"
-          color="light"
-        ></ion-icon>
-        <h2>buscar vaga</h2>
-        <p>
-          aqui você pode encontrar todas as bandas registradas e filtrar pelo
-          estilo que quiser!
-        </p>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-icon
-          class="iconSlide"
-          name="logo-whatsapp"
-          color="light"
-        ></ion-icon>
-        <h2>encontrei, e agora?</h2>
-        <p>
-          ao encontrar, você entrará em contato diretamente com o responsável
-          pelo anúncio, boa sorte!
-        </p>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-icon class="iconSlide" name="paper-plane" color="light"></ion-icon>
-        <h2>vamos começar?</h2>
-        <p>à seguir, escolha o tipo de anúncio que você deseja buscar</p>
-        <!-- <ion-button class="btnStyle" color="light">continuar <ion-icon class="iconStyle" name="arrow-forward" color="danger"></ion-icon></ion-button> -->
-      </ion-slide>
-
-      <ion-slide>
-        <h2>o que quer buscar?</h2>
-        <ion-button
-          (click)="redirectAnnounce('/announce-player')"
-          class="btnStyle"
-          color="light"
-          >buscar talento<ion-icon
-            class="iconStyle"
-            name="arrow-forward"
-            color="danger"
-          ></ion-icon
-        ></ion-button>
-        <ion-button
-          (click)="redirectAnnounce('/announce-band')"
-          class="btnStyle"
-          color="light"
-          >buscar vaga<ion-icon
-            class="iconStyle"
-            name="arrow-forward"
-            color="danger"
-          ></ion-icon
-        ></ion-button>
-      </ion-slide>
-    </ion-slides>
+    <ion-slide>
+      <h2>o que quer buscar?</h2>
+      <ion-button
+        (click)="redirectAnnounce('/announce-player')"
+        class="btnStyle"
+        color="light"
+        >buscar talento<ion-icon
+          class="iconStyle"
+          name="arrow-forward"
+          color="danger"
+        ></ion-icon
+      ></ion-button>
+      <ion-button
+        (click)="redirectAnnounce('/announce-band')"
+        class="btnStyle"
+        color="light"
+        >buscar vaga<ion-icon
+          class="iconStyle"
+          name="arrow-forward"
+          color="danger"
+        ></ion-icon
+      ></ion-button>  
+    </ion-slide>
   </ion-content>
 </div>
