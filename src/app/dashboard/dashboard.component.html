@@ -55,14 +55,14 @@
       </ion-row>
       
       <ion-row class="rowStyle" style="border-radius: 50px;">
-        <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+        <ion-button (click)="redirect('/shows')" class="btnStyle" color="light" style="border-radius: 50px !important;">
           shows
           <ion-icon name="star" color="danger"></ion-icon>
         </ion-button>
       </ion-row>
       
       <ion-row class="rowStyle" style="border-radius: 50px;">
-        <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+        <ion-button (click)="redirect('/help')" class="btnStyle" color="light" style="border-radius: 50px !important;">
           ajuda
           <ion-icon name="help-circle" color="danger"></ion-icon>
         </ion-button>

@@ -17,6 +17,9 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AnnounceComponent } from "./announce/announce.component";
 
 import * as firebase from "firebase";
+import { HelpBandComponent } from './help-band/help-band.component';
+import { HelpComponent } from './help/help.component';
+import { HelpPlayerComponent } from './help-player/help-player.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyBE8q51MQtdnurOCEiAH4wYWMRIS9rRtV0",
@@ -39,7 +42,10 @@ firebase.initializeApp(firebaseConfig);
     AnnounceComponent,
     AnnounceBandComponent,
     AnnouncePlayerComponent,
-    SearchComponent
+    SearchComponent,
+    HelpBandComponent,
+    HelpComponent,
+    HelpPlayerComponent
   ],
   entryComponents: [],
   imports: [

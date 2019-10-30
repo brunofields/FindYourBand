@@ -1,3 +1,5 @@
+import { HelpPlayerComponent } from './help-player/help-player.component';
+import { HelpComponent } from './help/help.component';
 import { SearchComponent } from "./search/search.component";
 import { AnnounceBandComponent } from "./announce-band/announce-band.component";
 import { AnnouncePlayerComponent } from "./announce-player/announce-player.component";
@@ -7,6 +9,7 @@ import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { AnnounceComponent } from "./announce/announce.component";
+import { HelpBandComponent } from './help-band/help-band.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -15,7 +18,10 @@ const routes: Routes = [
   { path: "announce", component: AnnounceComponent },
   { path: "announce-player", component: AnnouncePlayerComponent },
   { path: "announce-band", component: AnnounceBandComponent },
-  { path: "search", component: SearchComponent }
+  { path: "search", component: SearchComponent },
+  { path: "help", component: HelpComponent },
+  { path: "help-player", component: HelpPlayerComponent },
+  { path: "help-band", component: HelpBandComponent }
 ];
 
 @NgModule({
