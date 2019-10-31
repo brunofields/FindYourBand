@@ -1,44 +1,104 @@
-<ion-menu menuId="announceMenu" side="end">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title color="danger">menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="sideMenu">
-    <ion-list>
-        <ion-item>
-          <ion-icon color="danger" name="home" slot="end"></ion-icon>
-          <ion-label color="danger">dashboard</ion-label>
-        </ion-item>
-      <ion-item>
-        <ion-icon color="danger" name="person" slot="end"></ion-icon>
-        <ion-label color="danger">perfil</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-icon color="danger" name="chatbubbles" slot="end"></ion-icon>
-        <ion-label color="danger" >ajuda</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-icon color="danger" name="log-out" slot="end"></ion-icon>
-        <ion-label color="danger">logout</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
 <div class="ion-page" main>
   <ion-header>
     <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="" color="light"></ion-back-button>
-        </ion-buttons>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="" color="light"></ion-back-button>
+      </ion-buttons>
       <ion-buttons slot="end">
         <ion-menu-button color="light"></ion-menu-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content fullscreen padding scroll-y="false">
-    
+    <h1>anunciar banda</h1>
+    <form
+      [formGroup]="signUpForm"
+      (ngSubmit)="submitForm()"
+      style="margin-top: 20px;"
+    >
+      <ion-grid style="width: 80%;">
+        <ion-row class="rowStyle">
+          <ion-icon name="call" color="danger"></ion-icon>
+          <ion-input
+            clearInput="true"
+            style="width: 90%;"
+            type="tel"
+            maxLength="11"
+            placeholder="contato:"
+            formControlName="telefone"
+          ></ion-input>
+        </ion-row>
+        <ion-row class="rowStyleSelect">
+          <ion-icon name="microphone" color="danger"></ion-icon>
+          <ion-select
+            clearInput="true"
+            style="width: 90%"
+            multiple="true"
+            mode="ios"
+            cancelText="Cancelar"
+            okText="Feito!"
+            [interfaceOptions]="customAlertOptions"
+            interface="alert"
+            placeholder="talentos:"
+            formControlName="talento"
+          >
+            <ion-select-option
+              multiple
+              *ngFor="let talento of talentos"
+              value="{{ talento.nome }}"
+              >{{ talento.nome }}</ion-select-option
+            >
+          </ion-select>
+        </ion-row>
+
+        <ion-row class="rowStyleSelect">
+          <ion-icon name="musical-notes" color="danger"></ion-icon>
+          <ion-select
+            clearInput="true"
+            style="width: 90%"
+            multiple="true"
+            mode="ios"
+            cancelText="Cancelar"
+            okText="Feito!"
+            [interfaceOptions]="customAlertOptionsEstilo"
+            interface="alert"
+            placeholder="estilos musicais:"
+            formControlName="estilos"
+          >
+            <ion-select-option
+              multiple
+              *ngFor="let estiloMusical of estilosMusicais"
+              value="{{ estiloMusical.nome }}"
+              >{{ estiloMusical.nome }}</ion-select-option
+            >
+          </ion-select>
+        </ion-row>
+
+        <ion-row class="rowStyle">
+          <ion-icon name="create" color="danger"></ion-icon>
+          <ion-textarea
+            clearInput="true"
+            style="width: 90%;"
+            formControlName="descricao"
+            placeholder="descrição: "
+          ></ion-textarea>
+        </ion-row>
+
+        <ion-row>
+          <ion-button
+            type="submit"
+            class="btnStyle"
+            expand="block"
+            shape="round"
+            fill="outline"
+            color="light"
+          >
+            anunciar
+            <!-- <ion-icon style="position: absolute; left: 80%;" name="arrow-round-forward" color="light"></ion-icon> -->
+          </ion-button>
+        </ion-row>
+      </ion-grid>
+    </form>
   </ion-content>
 </div>

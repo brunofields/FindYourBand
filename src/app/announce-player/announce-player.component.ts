@@ -20,14 +20,15 @@ export class AnnouncePlayerComponent implements OnInit {
     public formBuilder: FormBuilder,
     public alertController: AlertController
   ) {
-    this.signUpForm = this.formBuilder.group(
-      {
-        talento: new FormControl("", Validators.compose([Validators.required])),
-        estilos: new FormControl("", Validators.compose([Validators.required])),
-        descricao: new FormControl("", Validators.compose([Validators.required])),
-        telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)]))
-      },
-    );
+    this.signUpForm = this.formBuilder.group({
+      talento: new FormControl("", Validators.compose([Validators.required])),
+      estilos: new FormControl("", Validators.compose([Validators.required])),
+      descricao: new FormControl("", Validators.compose([Validators.required])),
+      telefone: new FormControl(
+        "",
+        Validators.compose([Validators.required, Validators.minLength(11)])
+      )
+    });
   }
 
   openAnnounceMenu() {
@@ -152,11 +153,10 @@ export class AnnouncePlayerComponent implements OnInit {
 
   async welcomeAlert() {
     const alert = await this.alertController.create({
-      header: "bem vindo!",
-      message:
-        "olá, seja bem vindo ao fyb! <br> por favor, insira seus dados corretamente :)",
+      header: "preparado pra tocar?",
+      message: "selecione seus talentos e os estilos musicais que você toca!",
       mode: "ios",
-      buttons: ["ok"]
+      buttons: ["boa!"]
     });
     await alert.present();
   }
@@ -199,20 +199,27 @@ export class AnnouncePlayerComponent implements OnInit {
       this.presentAlert();
       return;
     } else {
-      firebase.firestore().collection('anuncioMusico').add({
-        telefone: this.signUpForm.get('telefone').value,
-        talento: this.signUpForm.get('talento').value,
-        estilos: this.signUpForm.get('estilos').value,
-        descricao: this.signUpForm.get('descricao').value,
-        userId: firebase.auth().currentUser.uid
-      }).then((doc) => {
-        this.AlertaCriado();
-        console.log(doc);
-      }).catch((err) =>{
-        console.log(err);
-      });
+      firebase
+        .firestore()
+        .collection("anuncioMusico")
+        .add({
+          telefone: this.signUpForm.get("telefone").value,
+          talento: this.signUpForm.get("talento").value,
+          estilos: this.signUpForm.get("estilos").value,
+          descricao: this.signUpForm.get("descricao").value,
+          userId: firebase.auth().currentUser.uid
+        })
+        .then(doc => {
+          this.AlertaCriado();
+          console.log(doc);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.welcomeAlert();
+  }
 }
