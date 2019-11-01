@@ -1,3 +1,57 @@
-<p>
-  search-player works!
-</p>
+<ion-menu menuId="announceMenu" side="end">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title color="danger">menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="sideMenu">
+    <ion-list>
+      <ion-item>
+        <ion-icon color="danger" name="home" slot="end"></ion-icon>
+        <ion-label color="danger">dashboard</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon color="danger" name="person" slot="end"></ion-icon>
+        <ion-label color="danger">perfil</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon color="danger" name="chatbubbles" slot="end"></ion-icon>
+        <ion-label color="danger">ajuda</ion-label>
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon color="danger" name="log-out" slot="end"></ion-icon>
+        <ion-label color="danger">logout</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" main>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="" color="light"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-menu-button color="light"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen padding>
+    <ion-list>
+      <ion-list-header>
+        Hobbits
+      </ion-list-header>
+      <a ion-item (click)="openModal({charNum: 0})">
+        Gollum
+      </a>
+      <a ion-item (click)="openModal({charNum: 1})">
+        Frodo Baggins
+      </a>
+      <a ion-item (click)="openModal({charNum: 2})">
+        Sam
+      </a>
+    </ion-list>
+  </ion-content>
+</div>

@@ -1,3 +1,5 @@
+import { SearchBandComponent } from './search-band/search-band.component';
+import { SearchPlayerComponent } from './search-player/search-player.component';
 import { ShowsComponent } from './shows/shows.component';
 import { HelpPlayerComponent } from './help-player/help-player.component';
 import { HelpComponent } from './help/help.component';
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: "announce-player", component: AnnouncePlayerComponent },
   { path: "announce-band", component: AnnounceBandComponent },
   { path: "search", component: SearchComponent },
+  { path: "search-player", component: SearchPlayerComponent },
+  { path: "search-band", component: SearchBandComponent },
   { path: "help", component: HelpComponent },
   { path: "help-player", component: HelpPlayerComponent },
   { path: "help-band", component: HelpBandComponent },

@@ -1,3 +1,5 @@
+import { SearchBandComponent } from './search-band/search-band.component';
+import { SearchPlayerComponent } from './search-player/search-player.component';
 import { ShowsComponent } from './shows/shows.component';
 import { SearchComponent } from './search/search.component';
 import { AnnouncePlayerComponent } from "./announce-player/announce-player.component";
@@ -44,6 +46,8 @@ firebase.initializeApp(firebaseConfig);
     AnnounceBandComponent,
     AnnouncePlayerComponent,
     SearchComponent,
+    SearchPlayerComponent,
+    SearchBandComponent,
     HelpBandComponent,
     HelpComponent,
     HelpPlayerComponent,
