@@ -1,5 +1,4 @@
 ion-content {
-
   ion-title {
     font-weight: 700;
   }
@@ -22,16 +21,15 @@ ion-content {
   }
 
   h2 {
-      text-align: center;
-      color: #ffffff;
-      font-size: 1.2em;;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2em;
   }
 
   h6 {
     color: #ffffff;
     font-size: 1em;
   }
-
 
   .rowStyle {
     background: #ffffff;
@@ -64,7 +62,7 @@ ion-content {
     font-weight: 500;
   }
 
-  .btnStyle{
+  .btnStyle {
     color: #ffffff;
     width: 90%;
     margin-left: 5%;
@@ -74,13 +72,26 @@ ion-content {
     text-transform: lowercase !important;
     font-size: 1em;
 
-    ion-icon{
-        position: absolute;
-        left: 10%;
-        font-size: 35px;    
+    ion-icon {
+      position: absolute;
+      left: 10%;
+      font-size: 35px;
     }
-}
+  }
   a {
     text-decoration: none;
+  }
+}
+
+.itemBandas {
+  width: 100%;
+  h2{
+    width: 20%;
+  }
+  p{
+    width: 20%;
+  };
+  button{
+    width: 20%;
   }
 }

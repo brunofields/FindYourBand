@@ -45,7 +45,7 @@
           <ion-icon name="microphone" color="danger"></ion-icon>
           <ion-select
             clearInput="true"
-            multiple="true"
+            multiple="false"
             mode="ios"
             style="margin-left: 7%;"
             cancelText="Cancelar"
@@ -67,7 +67,7 @@
           <ion-icon name="musical-notes" color="danger"></ion-icon>
           <ion-select
             clearInput="true"
-            multiple="true"
+            multiple="false"
             mode="ios"
             style="margin-left: 5%;"
             cancelText="Cancelar"
@@ -87,10 +87,24 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+        <ion-button
+          class="btnStyle"
+          color="light"
+          style="border-radius: 50px !important;"
+        >
           filtrar
           <ion-icon name="search" color="danger"></ion-icon>
         </ion-button>
+      </ion-row>
+
+      <ion-row style="margin-top: 10px;">
+        <ion-item class="itemBandas" *ngFor="let banda of bandas; let i = index">
+          <ion-row>
+            <h2>{{ banda.nome }}</h2>
+            <p>{{ banda.talentoDesejado }}</p>
+            <button (click)="showModal(banda)">Veja mais</button>
+          </ion-row>
+        </ion-item>
       </ion-row>
     </ion-grid>
   </ion-content>

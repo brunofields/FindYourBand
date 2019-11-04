@@ -9,26 +9,26 @@ import { Component, OnInit } from "@angular/core";
 import * as firebase from "firebase";
 
 @Component({
-  selector: 'app-search-band',
-  templateUrl: './search-band.component.html',
-  styleUrls: ['./search-band.component.scss'],
+  selector: "app-search-band",
+  templateUrl: "./search-band.component.html",
+  styleUrls: ["./search-band.component.scss"]
 })
 export class SearchBandComponent implements OnInit {
-
   constructor(
     public menu: MenuController,
     public navCtrl: NavController,
     public formBuilder: FormBuilder,
     public alertController: AlertController
   ) {
-    this.signUpForm = this.formBuilder.group(
-      {
-        talento: new FormControl("", Validators.compose([Validators.required])),
-        estilos: new FormControl("", Validators.compose([Validators.required])),
-        descricao: new FormControl("", Validators.compose([Validators.required])),
-        telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)]))
-      },
-    );
+    this.signUpForm = this.formBuilder.group({
+      talento: new FormControl("", Validators.compose([Validators.required])),
+      estilos: new FormControl("", Validators.compose([Validators.required])),
+      descricao: new FormControl("", Validators.compose([Validators.required])),
+      telefone: new FormControl(
+        "",
+        Validators.compose([Validators.required, Validators.minLength(11)])
+      )
+    });
   }
 
   openAnnounceMenu() {
@@ -47,6 +47,24 @@ export class SearchBandComponent implements OnInit {
   customAlertOptionsEstilo: any = {
     header: "selecione um ou mais estilos musicais:"
   };
+
+  bandas = [
+    {
+      nome: "Falling in Reverse",
+      estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
+      talentoDesejado: "Guitarrista",
+    },
+    {
+      nome: "Teste",
+      estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
+      talentoDesejado: "Baixista",
+    },
+    {
+      nome: "Oie",
+      estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
+      talentoDesejado: "Baterista",
+    }
+  ];
 
   talentos = [
     { nome: "Acordeon" },
@@ -113,6 +131,16 @@ export class SearchBandComponent implements OnInit {
 
   public signUpForm: FormGroup;
   public submitAttempt: boolean = false;
+
+  async showModal(banda){
+    const alert = await this.alertController.create({
+      header: banda.nome,
+      message: banda.talentoDesejado,
+      mode: "ios",
+      buttons: ["ok"]
+    });
+    await alert.present();
+  }
 
   async presentAlert() {
     var concatErro = '<hr><span style="font-size: 1.2em; text-align: center">';
@@ -200,18 +228,23 @@ export class SearchBandComponent implements OnInit {
       this.presentAlert();
       return;
     } else {
-      firebase.firestore().collection('anuncioBanda').add({
-        telefone: this.signUpForm.get('telefone').value,
-        talento: this.signUpForm.get('talento').value,
-        estilos: this.signUpForm.get('estilos').value,
-        descricao: this.signUpForm.get('descricao').value,
-        userId: firebase.auth().currentUser.uid
-      }).then((doc) => {
-        this.AlertaCriado();
-        console.log(doc);
-      }).catch((err) =>{
-        console.log(err);
-      });
+      firebase
+        .firestore()
+        .collection("anuncioBanda")
+        .add({
+          telefone: this.signUpForm.get("telefone").value,
+          talento: this.signUpForm.get("talento").value,
+          estilos: this.signUpForm.get("estilos").value,
+          descricao: this.signUpForm.get("descricao").value,
+          userId: firebase.auth().currentUser.uid
+        })
+        .then(doc => {
+          this.AlertaCriado();
+          console.log(doc);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 
