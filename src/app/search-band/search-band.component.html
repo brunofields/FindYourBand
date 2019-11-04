@@ -38,7 +38,60 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content fullscreen padding scroll-y="false">
-
+  <ion-content>
+    <ion-grid>
+      <ion-row style="margin-top: 20px;">
+        <ion-col class="rowStyle">
+          <ion-icon name="microphone" color="danger"></ion-icon>
+          <ion-select
+            clearInput="true"
+            multiple="true"
+            mode="ios"
+            style="margin-left: 7%;"
+            cancelText="Cancelar"
+            okText="Feito!"
+            [interfaceOptions]="customAlertOptions"
+            interface="alert"
+            placeholder="talentos:"
+            formControlName="talento"
+          >
+            <ion-select-option
+              multiple
+              *ngFor="let talento of talentos"
+              value="{{ talento.nome }}"
+              >{{ talento.nome }}</ion-select-option
+            >
+          </ion-select>
+        </ion-col>
+        <ion-col class="rowStyle">
+          <ion-icon name="musical-notes" color="danger"></ion-icon>
+          <ion-select
+            clearInput="true"
+            multiple="true"
+            mode="ios"
+            style="margin-left: 5%;"
+            cancelText="Cancelar"
+            okText="Feito!"
+            [interfaceOptions]="customAlertOptionsEstilo"
+            interface="alert"
+            placeholder="estilos musicais:"
+            formControlName="estilos"
+          >
+            <ion-select-option
+              multiple
+              *ngFor="let estiloMusical of estilosMusicais"
+              value="{{ estiloMusical.nome }}"
+              >{{ estiloMusical.nome }}</ion-select-option
+            >
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-button class="btnStyle" color="light" style="border-radius: 50px !important;">
+          filtrar
+          <ion-icon name="search" color="danger"></ion-icon>
+        </ion-button>
+      </ion-row>
+    </ion-grid>
   </ion-content>
 </div>
