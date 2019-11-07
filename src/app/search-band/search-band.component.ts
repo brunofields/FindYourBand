@@ -18,7 +18,7 @@ export class SearchBandComponent implements OnInit {
     public menu: MenuController,
     public navCtrl: NavController,
     public formBuilder: FormBuilder,
-    public alertController: AlertController
+    public alertController: AlertController,
   ) {
     this.signUpForm = this.formBuilder.group({
       talento: new FormControl("", Validators.compose([Validators.required])),
@@ -48,27 +48,32 @@ export class SearchBandComponent implements OnInit {
     header: "selecione um ou mais estilos musicais:"
   };
 
+  cordova: any;
+
   bandas = [
     {
       nome: "Falling in Reverse",
       estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
       talentoDesejado: "Guitarrista",
       img:
-        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png"
+        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png",
+      contato: 13996721374
     },
     {
       nome: "Teste",
       estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
       talentoDesejado: "Baixista",
       img:
-        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png"
+        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png",
+      contato: 13996721374
     },
     {
       nome: "Oie",
       estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
       talentoDesejado: "Baterista",
       img:
-        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png"
+        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png",
+      contato: 13996721374
     }
   ];
 
@@ -134,7 +139,6 @@ export class SearchBandComponent implements OnInit {
     { nome: "Soul" },
     { nome: "Velha Guarda" }
   ];
-
   public signUpForm: FormGroup;
   public submitAttempt: boolean = false;
 
@@ -143,7 +147,18 @@ export class SearchBandComponent implements OnInit {
       header: banda.nome,
       message: banda.talentoDesejado,
       mode: "ios",
-      buttons: ["ok"]
+      buttons: [
+        {
+          text: "entrar em contato!",
+          handler: () => {
+            window.location.replace('https://api.whatsapp.com/send?phone=+55' + banda.contato);
+          }
+        },
+        {
+          text: "voltar",
+          role: "cancel"
+        },
+      ]
     });
     await alert.present();
   }

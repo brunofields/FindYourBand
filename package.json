@@ -37,6 +37,7 @@
     "core-js": "^2.5.4",
     "firebase": "^6.4.2",
     "gradle": "^1.0.9",
+    "mobi.moica.whatsapp": "git+https://github.com/ranjitpandit/whatsapp-phonegap-plugin.git",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.29"
   },
@@ -81,7 +82,8 @@
         "ANDROID_SUPPORT_VERSION": "27.+"
       },
       "cordova-plugin-androidx": {},
-      "cordova-plugin-androidx-adapter": {}
+      "cordova-plugin-androidx-adapter": {},
+      "mobi.moica.whatsapp": {}
     },
     "platforms": [
       "android"
