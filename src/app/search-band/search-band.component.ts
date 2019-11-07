@@ -52,17 +52,17 @@ export class SearchBandComponent implements OnInit {
     {
       nome: "Falling in Reverse",
       estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Guitarrista",
+      talentoDesejado: "Guitarrista"
     },
     {
       nome: "Teste",
       estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Baixista",
+      talentoDesejado: "Baixista"
     },
     {
       nome: "Oie",
       estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Baterista",
+      talentoDesejado: "Baterista"
     }
   ];
 
@@ -132,7 +132,7 @@ export class SearchBandComponent implements OnInit {
   public signUpForm: FormGroup;
   public submitAttempt: boolean = false;
 
-  async showModal(banda){
+  async showModal(banda) {
     const alert = await this.alertController.create({
       header: banda.nome,
       message: banda.talentoDesejado,
@@ -140,6 +140,10 @@ export class SearchBandComponent implements OnInit {
       buttons: ["ok"]
     });
     await alert.present();
+  }
+
+  logout() {
+    firebase.auth().signOut();
   }
 
   async presentAlert() {
