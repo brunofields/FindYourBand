@@ -1,3 +1,44 @@
-<p>
-  shows works!
-</p>
+<ion-menu menuId="announceMenu" side="end">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title color="danger">menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="sideMenu">
+    <ion-list>
+      <ion-item (click)="redirect('dashboard')">
+        <ion-icon color="danger" name="home" slot="end"></ion-icon>
+        <ion-label color="danger">dashboard</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon color="danger" name="person" slot="end"></ion-icon>
+        <ion-label color="danger">perfil</ion-label>
+      </ion-item>
+      <ion-item (click)="redirect('help')">
+        <ion-icon color="danger" name="chatbubbles" slot="end"></ion-icon>
+        <ion-label color="danger">ajuda</ion-label>
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon color="danger" name="log-out" slot="end"></ion-icon>
+        <ion-label color="danger">logout</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" main>
+  <ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="" color="light"></ion-back-button>
+        </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-menu-button color="light"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content fullscreen padding scroll-y="false">
+
+  </ion-content>
+</div>

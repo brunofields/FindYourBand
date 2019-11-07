@@ -142,8 +142,13 @@ export class SearchBandComponent implements OnInit {
     await alert.present();
   }
 
+  redirect(link){
+    this.navCtrl.navigateForward('/'+ link);
+  }
+
   logout() {
     firebase.auth().signOut();
+    this.navCtrl.navigateBack('/');
   }
 
   async presentAlert() {
