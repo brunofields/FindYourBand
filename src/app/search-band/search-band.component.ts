@@ -52,17 +52,23 @@ export class SearchBandComponent implements OnInit {
     {
       nome: "Falling in Reverse",
       estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Guitarrista"
+      talentoDesejado: "Guitarrista",
+      img:
+        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png"
     },
     {
       nome: "Teste",
       estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Baixista"
+      talentoDesejado: "Baixista",
+      img:
+        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png"
     },
     {
       nome: "Oie",
       estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Baterista"
+      talentoDesejado: "Baterista",
+      img:
+        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png"
     }
   ];
 
@@ -142,13 +148,13 @@ export class SearchBandComponent implements OnInit {
     await alert.present();
   }
 
-  redirect(link){
-    this.navCtrl.navigateForward('/'+ link);
+  redirect(link) {
+    this.navCtrl.navigateForward("/" + link);
   }
 
   logout() {
     firebase.auth().signOut();
-    this.navCtrl.navigateBack('/');
+    this.navCtrl.navigateBack("/");
   }
 
   async presentAlert() {
