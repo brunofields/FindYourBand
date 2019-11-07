@@ -22,6 +22,7 @@ export class AnnounceBandComponent implements OnInit {
   ) {
     this.signUpForm = this.formBuilder.group(
       {
+        nomeBanda: new FormControl("", Validators.compose([Validators.required])),
         talento: new FormControl("", Validators.compose([Validators.required])),
         estilos: new FormControl("", Validators.compose([Validators.required])),
         descricao: new FormControl("", Validators.compose([Validators.required])),
@@ -201,6 +202,7 @@ export class AnnounceBandComponent implements OnInit {
     } else {
       firebase.firestore().collection('anuncioBanda').add({
         telefone: this.signUpForm.get('telefone').value,
+        nomeBanda: this.signUpForm.get('nomeBanda').value,
         talento: this.signUpForm.get('talento').value,
         estilos: this.signUpForm.get('estilos').value,
         descricao: this.signUpForm.get('descricao').value,
