@@ -18,8 +18,10 @@ export class SearchBandComponent implements OnInit {
     public menu: MenuController,
     public navCtrl: NavController,
     public formBuilder: FormBuilder,
-    public alertController: AlertController,
+    public alertController: AlertController
   ) {
+    this.getBandas();
+
     this.signUpForm = this.formBuilder.group({
       talento: new FormControl("", Validators.compose([Validators.required])),
       estilos: new FormControl("", Validators.compose([Validators.required])),
@@ -41,14 +43,32 @@ export class SearchBandComponent implements OnInit {
   }
 
   customAlertOptions: any = {
-    header: "selecione um ou mais talentos:"
+    header: "selecione um talento:"
   };
 
   customAlertOptionsEstilo: any = {
-    header: "selecione um ou mais estilos musicais:"
+    header: "selecione um estilo musical:"
   };
 
   cordova: any;
+
+  bandasFirebase: any[] = [];
+
+  getBandas() {
+    firebase
+      .firestore()
+      .collection("anuncioBanda")
+      .get()
+      .then(docs => {
+        docs.forEach(doc => {
+          this.bandasFirebase.push(doc);
+        });
+        console.log(this.bandasFirebase);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   bandas = [
     {
@@ -144,20 +164,29 @@ export class SearchBandComponent implements OnInit {
 
   async showModal(banda) {
     const alert = await this.alertController.create({
-      header: banda.nome,
-      message: banda.talentoDesejado,
+      header: banda.nomeBanda,
+      message:
+        "O que estamos buscando:<strong><br>" +
+        banda.talento +
+        "</strong><br><br><br>O que tocamos: <strong><br>" +
+        banda.estilos +
+        "</strong>" +
+        "<br> Descrição: " +
+        banda.descricao,
       mode: "ios",
       buttons: [
         {
           text: "entrar em contato!",
           handler: () => {
-            window.location.replace('https://api.whatsapp.com/send?phone=+55' + banda.contato);
+            window.location.replace(
+              "https://api.whatsapp.com/send?phone=+55" + banda.telefone
+            );
           }
         },
         {
           text: "voltar",
           role: "cancel"
-        },
+        }
       ]
     });
     await alert.present();

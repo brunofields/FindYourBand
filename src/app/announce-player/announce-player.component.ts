@@ -194,7 +194,6 @@ export class AnnouncePlayerComponent implements OnInit {
 
   submitForm() {
     this.submitAttempt = true;
-
     if (!this.signUpForm.valid) {
       this.presentAlert();
       return;
@@ -203,6 +202,7 @@ export class AnnouncePlayerComponent implements OnInit {
         .firestore()
         .collection("anuncioMusico")
         .add({
+          nome: firebase.auth().currentUser.displayName,
           telefone: this.signUpForm.get("telefone").value,
           talento: this.signUpForm.get("talento").value,
           estilos: this.signUpForm.get("estilos").value,
