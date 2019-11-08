@@ -5,7 +5,7 @@ import {
   FormControl
 } from "@angular/forms";
 import { MenuController, NavController, AlertController } from "@ionic/angular";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import * as firebase from "firebase";
 
 @Component({
@@ -14,6 +14,8 @@ import * as firebase from "firebase";
   styleUrls: ["./search-band.component.scss"]
 })
 export class SearchBandComponent implements OnInit {
+  queryTalento: string = "";
+  queryEstilo: string = "";
   constructor(
     public menu: MenuController,
     public navCtrl: NavController,
@@ -55,6 +57,7 @@ export class SearchBandComponent implements OnInit {
   bandasFirebase: any[] = [];
 
   getBandas() {
+    this.bandasFirebase = [];
     firebase
       .firestore()
       .collection("anuncioBanda")
@@ -70,32 +73,25 @@ export class SearchBandComponent implements OnInit {
       });
   }
 
-  bandas = [
-    {
-      nome: "Falling in Reverse",
-      estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Guitarrista",
-      img:
-        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png",
-      contato: 13996721374
-    },
-    {
-      nome: "Teste",
-      estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Baixista",
-      img:
-        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png",
-      contato: 13996721374
-    },
-    {
-      nome: "Oie",
-      estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Baterista",
-      img:
-        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png",
-      contato: 13996721374
-    }
-  ];
+  filtrar() {
+    this.bandasFirebase = [];
+
+    firebase
+      .firestore()
+      .collection("anuncioBanda")
+      .where("talento", "array-contains", this.queryTalento)
+      .where("estilo", "array-contains", this.queryEstilo)
+      .get()
+      .then(docs => {
+        docs.forEach(doc => {
+          this.bandasFirebase.push(doc);
+        });
+        console.log(this.bandasFirebase);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   talentos = [
     { nome: "Acordeon" },
@@ -166,12 +162,12 @@ export class SearchBandComponent implements OnInit {
     const alert = await this.alertController.create({
       header: banda.nomeBanda,
       message:
-        "O que estamos buscando:<strong><br>" +
+        "<br>O que estamos buscando:<strong><br>" +
         banda.talento +
         "</strong><br><br><br>O que tocamos: <strong><br>" +
         banda.estilos +
         "</strong>" +
-        "<br> Descrição: " +
+        "<br><br><br> Descrição: <br>" +
         banda.descricao,
       mode: "ios",
       buttons: [
