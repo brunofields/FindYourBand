@@ -22,18 +22,28 @@ ion-content {
 
   h2 {
     position: absolute;
-    font-size: 18px;
+    font-size: 20px;
     top: 0%;
+    font-weight: 600;
     left: 27%;
     color: #ffffff;
   }
 
   p {
     position: absolute;
-    font-size: 16px;
-    left: 27%;
+    font-size: 13px;
+    left: 30%;
     color: #ffffff;
   } 
+
+  .imgFyb {
+    width: 75%;
+    height: 100%;
+    background-image: url("../../assets/icon/Logo-Branco.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
   .btnBandas{
     position: absolute;

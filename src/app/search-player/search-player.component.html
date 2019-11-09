@@ -56,6 +56,8 @@
             [interfaceOptions]="customAlertOptions"
             interface="alert"
             placeholder="talentos:"
+            [(ngModel)]="queryTalento"
+
           >
             <ion-select-option
               multiple
@@ -77,6 +79,8 @@
             [interfaceOptions]="customAlertOptionsEstilo"
             interface="alert"
             placeholder="estilos musicais:"
+            [(ngModel)]="queryEstilo"
+
           >
             <ion-select-option
               multiple
@@ -89,6 +93,7 @@
       </ion-row>
       <ion-row>
         <ion-button
+          (click)="filtrar()"
           class="btnStyle"
           color="light"
           style="border-radius: 50px !important;"
@@ -110,15 +115,13 @@
     </ion-grid>
 
     <ion-list style="margin-top: 10px;">
-      <ion-item class="itemBandas" *ngFor="let player of players; let i = index">
+      <ion-item class="itemBandas" *ngFor="let banda of bandasFirebase; let i = index">
         <ion-thumbnail item-left>
-          <img
-            src= {{player.img}}
-          />
+          <div class="imgFyb"></div>
         </ion-thumbnail>
-        <h2>{{ player.nome }}</h2>
-        <p>{{ player.talentoDesejado }}</p>
-        <button style="position:absolute; right: 5%; background-color: transparent;" fill="clear" item-right (click)="showModal(player)">
+        <h2>{{ banda.data().nome }}</h2>
+        <p>{{ banda.data().talento[0] }}</p>
+        <button style="position:absolute; right: 5%; background-color: transparent;" fill="clear" item-right (click)="showModal(banda.data())">
           <ion-icon style="font-size: 40px;" name="add-circle" color="light"></ion-icon>
         </button>
       </ion-item>

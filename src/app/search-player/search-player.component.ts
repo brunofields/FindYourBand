@@ -15,13 +15,16 @@ import * as firebase from "firebase";
   styleUrls: ['./search-player.component.scss'],
 })
 export class SearchPlayerComponent implements OnInit {
-
+  queryTalento: string = "";
+  queryEstilo: string = "";
   constructor(
     public menu: MenuController,
     public navCtrl: NavController,
     public formBuilder: FormBuilder,
     public alertController: AlertController
   ) {
+    this.getBandas();
+
     this.signUpForm = this.formBuilder.group({
       talento: new FormControl("", Validators.compose([Validators.required])),
       estilos: new FormControl("", Validators.compose([Validators.required])),
@@ -52,32 +55,58 @@ export class SearchPlayerComponent implements OnInit {
 
   cordova: any;
 
-  players = [
-    {
-      nome: "Yan Bautista",
-      estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Guitarrista",
-      img:
-        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png",
-      contato: 13996721374
-    },
-    {
-      nome: "Supla",
-      estilos: ["Rockabilly"],
-      talentoDesejado: "Baixista",
-      img:
-        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png",
-      contato: 13996721374
-    },
-    {
-      nome: "John Cena",
-      estilos: ["Rock", "Nu Metal", "Rap", "Eletrônica"],
-      talentoDesejado: "Baterista",
-      img:
-        "https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/thumbnail-totoro.png",
-      contato: 13996721374
-    }
-  ];
+  bandasFirebase: any[] = [];
+
+  getBandas() {
+    this.bandasFirebase = [];
+    firebase
+      .firestore()
+      .collection("anuncioMusico")
+      .get()
+      .then(docs => {
+        docs.forEach(doc => {
+          this.bandasFirebase.push(doc);
+        });
+        console.log(this.bandasFirebase);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  filtrar() {
+    this.bandasFirebase = [];
+
+    firebase
+      .firestore()
+      .collection("anuncioMusico")
+      .where("talento", "array-contains", this.queryTalento)
+      .get()
+      .then(docs => {
+        docs.forEach(doc => {
+          this.bandasFirebase.push(doc);
+        });
+        console.log(this.bandasFirebase);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+      firebase
+      .firestore()
+      .collection("anuncioMusico")
+      .where("estilos", "array-contains", this.queryEstilo)
+      .get()
+      .then(docs => {
+        docs.forEach(doc => {
+          this.bandasFirebase.push(doc);
+        });
+        console.log(this.bandasFirebase);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   talentos = [
     { nome: "Acordeon" },
@@ -144,22 +173,24 @@ export class SearchPlayerComponent implements OnInit {
   public signUpForm: FormGroup;
   public submitAttempt: boolean = false;
 
-  async showModal(player) {
+  async showModal(banda) {
     const alert = await this.alertController.create({
-      header: player.nome,
+      header: banda.nome,
       message:
-        "Meu talento: <strong><br>" +
-        player.talentoDesejado +
-        "</strong><br><br><br>O que eu toco: <strong><br>" +
-        player.estilos +
-        "</strong>",
+        "<br>Talentos: <strong><br>" +
+        banda.talento +
+        "</strong><br><br><br>Estilos: <strong><br>" +
+        banda.estilos +
+        "</strong>" +
+        "<br><br><br> Descrição: <br>" +
+        banda.descricao,
       mode: "ios",
       buttons: [
         {
           text: "entrar em contato!",
           handler: () => {
             window.location.replace(
-              "https://api.whatsapp.com/send?phone=+55" + player.contato
+              "https://api.whatsapp.com/send?phone=+55" + banda.telefone
             );
           }
         },
@@ -220,9 +251,9 @@ export class SearchPlayerComponent implements OnInit {
 
   async welcomeAlert() {
     const alert = await this.alertController.create({
-      header: "buscando talentos?",
+      header: "procurando talentos?",
       message:
-        "confira todos os nossos talentos cadastrados, você pode filtra-los de acordo com o talento ou estilo musical!",
+        "veja todos os nossos usuários cadastrados, se quiser, filtre por instrumentos ou estilos musicais!",
       mode: "ios",
       buttons: ["beleza!"]
     });
@@ -239,53 +270,10 @@ export class SearchPlayerComponent implements OnInit {
     await alert.present();
   }
 
-  async AlertaCriado() {
-    const alert = await this.alertController.create({
-      header: "sucesso!",
-      message: "você realizou o anúncio!",
-      mode: "ios",
-      buttons: [
-        {
-          text: "ok",
-          handler: () => {
-            this.gotoDashboard();
-          }
-        }
-      ]
-    });
-    await alert.present();
-  }
-
   gotoDashboard() {
     this.navCtrl.navigateBack("/dashboard");
   }
 
-  submitForm() {
-    this.submitAttempt = true;
-
-    if (!this.signUpForm.valid) {
-      this.presentAlert();
-      return;
-    } else {
-      firebase
-        .firestore()
-        .collection("anuncioBanda")
-        .add({
-          telefone: this.signUpForm.get("telefone").value,
-          talento: this.signUpForm.get("talento").value,
-          estilos: this.signUpForm.get("estilos").value,
-          descricao: this.signUpForm.get("descricao").value,
-          userId: firebase.auth().currentUser.uid
-        })
-        .then(doc => {
-          this.AlertaCriado();
-          console.log(doc);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-  }
 
   ngOnInit() {
     this.welcomeAlert();
