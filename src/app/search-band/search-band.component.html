@@ -117,9 +117,7 @@
     <ion-list style="margin-top: 10px;">
       <ion-item class="itemBandas" *ngFor="let banda of bandasFirebase; let i = index">
         <ion-thumbnail item-left>
-          <!-- <img
-            src= {{banda.img}}
-          /> -->
+          <div class="imgFyb"></div>
         </ion-thumbnail>
         <h2>{{ banda.data().nomeBanda }}</h2>
         <p>{{ banda.data().talento[0] }}</p>

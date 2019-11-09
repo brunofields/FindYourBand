@@ -1,7 +1,21 @@
 ion-content {
+
+	.container-fluid{
+		border-radius: 4px;
+		background-color: #ffffff;
+	}
+
+
     ion-title {
       font-weight: 700;
     }
+	
+	.tituloShow {
+	text-align: center;
+	width: 100%;
+	color: #ffffff;
+	font-size: 20px
+	}
   
     .logo {
       height: 230px;

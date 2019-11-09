@@ -109,6 +109,12 @@ export class SignupComponent implements OnInit {
     
   }
   
+  
+  redirect(link) {
+    this.navCtrl.navigateForward("/" + link);
+  }
+
+  
   async presentAlert() {
     var concatErro = '<hr><span style="font-size: 1.2em; text-align: center">';
     

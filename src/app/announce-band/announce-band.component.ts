@@ -20,15 +20,16 @@ export class AnnounceBandComponent implements OnInit {
     public formBuilder: FormBuilder,
     public alertController: AlertController
   ) {
-    this.signUpForm = this.formBuilder.group(
-      {
-        nomeBanda: new FormControl("", Validators.compose([Validators.required])),
-        talento: new FormControl("", Validators.compose([Validators.required])),
-        estilos: new FormControl("", Validators.compose([Validators.required])),
-        descricao: new FormControl("", Validators.compose([Validators.required])),
-        telefone: new FormControl('', Validators.compose([Validators.required, Validators.minLength(11)]))
-      },
-    );
+    this.signUpForm = this.formBuilder.group({
+      nomeBanda: new FormControl("", Validators.compose([Validators.required])),
+      talento: new FormControl("", Validators.compose([Validators.required])),
+      estilos: new FormControl("", Validators.compose([Validators.required])),
+      descricao: new FormControl("", Validators.compose([Validators.required])),
+      telefone: new FormControl(
+        "",
+        Validators.compose([Validators.required, Validators.minLength(11)])
+      )
+    });
   }
 
   openAnnounceMenu() {
@@ -113,6 +114,11 @@ export class AnnounceBandComponent implements OnInit {
 
   public signUpForm: FormGroup;
   public submitAttempt: boolean = false;
+
+  logout() {
+    firebase.auth().signOut();
+    this.navCtrl.navigateBack("/");
+  }
 
   async presentAlert() {
     var concatErro = '<hr><span style="font-size: 1.2em; text-align: center">';
@@ -200,19 +206,24 @@ export class AnnounceBandComponent implements OnInit {
       this.presentAlert();
       return;
     } else {
-      firebase.firestore().collection('anuncioBanda').add({
-        telefone: this.signUpForm.get('telefone').value,
-        nomeBanda: this.signUpForm.get('nomeBanda').value,
-        talento: this.signUpForm.get('talento').value,
-        estilos: this.signUpForm.get('estilos').value,
-        descricao: this.signUpForm.get('descricao').value,
-        userId: firebase.auth().currentUser.uid
-      }).then((doc) => {
-        this.AlertaCriado();
-        console.log(doc);
-      }).catch((err) =>{
-        console.log(err);
-      });
+      firebase
+        .firestore()
+        .collection("anuncioBanda")
+        .add({
+          telefone: this.signUpForm.get("telefone").value,
+          nomeBanda: this.signUpForm.get("nomeBanda").value,
+          talento: this.signUpForm.get("talento").value,
+          estilos: this.signUpForm.get("estilos").value,
+          descricao: this.signUpForm.get("descricao").value,
+          userId: firebase.auth().currentUser.uid
+        })
+        .then(doc => {
+          this.AlertaCriado();
+          console.log(doc);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 

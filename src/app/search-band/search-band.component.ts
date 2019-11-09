@@ -80,7 +80,21 @@ export class SearchBandComponent implements OnInit {
       .firestore()
       .collection("anuncioBanda")
       .where("talento", "array-contains", this.queryTalento)
-      .where("estilo", "array-contains", this.queryEstilo)
+      .get()
+      .then(docs => {
+        docs.forEach(doc => {
+          this.bandasFirebase.push(doc);
+        });
+        console.log(this.bandasFirebase);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+      firebase
+      .firestore()
+      .collection("anuncioBanda")
+      .where("estilos", "array-contains", this.queryEstilo)
       .get()
       .then(docs => {
         docs.forEach(doc => {
