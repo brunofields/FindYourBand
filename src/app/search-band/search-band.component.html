@@ -102,16 +102,6 @@
           <ion-icon name="search" color="danger"></ion-icon>
         </ion-button>
       </ion-row>
-      <!-- 
-      <ion-row style="margin-top: 10px;">
-        <ion-item class="itemBandas" *ngFor="let banda of bandas; let i = index">
-          <ion-row>
-            <h2>{{ banda.nome }}</h2>
-            <p>{{ banda.talentoDesejado }}</p>
-            <button (click)="showModal(banda)">Veja mais</button>
-          </ion-row>
-        </ion-item>
-      </ion-row> -->
     </ion-grid>
 
     <ion-list style="margin-top: 10px;">
@@ -120,7 +110,7 @@
           <div class="imgFyb"></div>
         </ion-thumbnail>
         <h2>{{ banda.data().nomeBanda }}</h2>
-        <p>{{ banda.data().talento[0] }}</p>
+        <!-- <p>{{ banda.data().talento[0] }}</p> -->
         <button style="position:absolute; right: 5%; background-color: transparent;" fill="clear" item-right (click)="showModal(banda.data())">
           <ion-icon style="font-size: 40px;" name="add-circle" color="light"></ion-icon>
         </button>

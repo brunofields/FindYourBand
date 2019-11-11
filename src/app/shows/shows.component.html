@@ -29,25 +29,37 @@
 <div class="ion-page" main>
   <ion-header>
     <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="" color="light"></ion-back-button>
-        </ion-buttons>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="" color="light"></ion-back-button>
+      </ion-buttons>
       <ion-buttons slot="end">
         <ion-menu-button color="light"></ion-menu-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content fullscreen padding scroll-y="false">
-	<div class="container-fluid">
-		<ion-item>
-		<h1 class="tituloShow">
-			shows na sua região
-		</h1>
-		</ion-item>
-		<div class="imgCard">
-			
-		</div>
-	</div>
+    <div class="container-fluid">
+      <ion-slides>
+        <ion-slide *ngFor="let show of showsList"> 
+          <div class="container-slide">
+            <img class="img-show" src="../../assets/show-slider/showImg.jpg" alt="">
+            <h3 class="titulo-slide">
+                {{show.nomeShow}}
+            </h3>
+            <p>
+              {{show.descricao}}
+            </p>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <ion-button
+          class="btnStyle"
+          color="light"
+          style="border-radius: 50px !important;"
+        >
+          quero anunciar meu show
+        </ion-button>
   </ion-content>
 </div>
