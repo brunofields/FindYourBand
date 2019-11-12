@@ -32,6 +32,7 @@
       <ion-buttons slot="start">
         <ion-back-button defaultHref="" color="light"></ion-back-button>
       </ion-buttons>
+      <ion-title style="text-align: center; margin-right: 5%; font-size: 18px;">shows</ion-title>
       <ion-buttons slot="end">
         <ion-menu-button color="light"></ion-menu-button>
       </ion-buttons>
@@ -40,26 +41,39 @@
 
   <ion-content fullscreen padding scroll-y="false">
     <div class="container-fluid">
-      <ion-slides>
-        <ion-slide *ngFor="let show of showsList"> 
-          <div class="container-slide">
-            <img class="img-show" src="../../assets/show-slider/showImg.jpg" alt="">
+      <ion-slides pager>
+        <ion-slide *ngFor="let show of showsList">
+          <div class="container-slide" style="height: 405px">
+            <img
+              class="img-show"
+              src="../../assets/show-slider/showImg.jpg"
+              alt=""
+            />
             <h3 class="titulo-slide">
-                {{show.nomeShow}}
+              {{ show.nomeShow }}
             </h3>
+            <h4 style="font-weight: 700">
+              {{ show.dataShow }}
+            </h4>
             <p>
-              {{show.descricao}}
+              {{ show.descricao }}
             </p>
+            <h5>
+              {{ show.estiloShow }}
+            </h5>
+            <h6>
+              {{ show.localShow }}
+            </h6>
           </div>
         </ion-slide>
       </ion-slides>
     </div>
     <ion-button
-          class="btnStyle"
-          color="light"
-          style="border-radius: 50px !important;"
-        >
-          quero anunciar meu show
-        </ion-button>
+      class="btnStyle"
+      color="light"
+      style="border-radius: 50px !important;"
+    >
+      quero anunciar meu show
+    </ion-button>
   </ion-content>
 </div>

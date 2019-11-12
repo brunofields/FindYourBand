@@ -32,7 +32,7 @@
       <ion-buttons slot="start">
         <ion-back-button defaultHref="" color="light"></ion-back-button>
       </ion-buttons>
-      <ion-title style="text-align: center; font-size: 18px;">
+      <ion-title style="text-align: center; font-size: 18px; margin-right: 5%;">
         buscar vagas
       </ion-title>
       <ion-buttons slot="end">
@@ -107,12 +107,13 @@
     <ion-list style="margin-top: 10px;">
       <ion-item class="itemBandas" *ngFor="let banda of bandasFirebase; let i = index">
         <ion-thumbnail item-left>
-          <div class="imgFyb"></div>
+          <!-- <div class="imgFyb"></div> -->
+          <ion-icon class="avatar" name="person" color="light"></ion-icon>
         </ion-thumbnail>
         <h2>{{ banda.data().nomeBanda }}</h2>
         <!-- <p>{{ banda.data().talento[0] }}</p> -->
         <button style="position:absolute; right: 5%; background-color: transparent;" fill="clear" item-right (click)="showModal(banda.data())">
-          <ion-icon style="font-size: 40px;" name="add-circle" color="light"></ion-icon>
+          <ion-icon style="font-size: 35px;" name="add-circle" color="light"></ion-icon>
         </button>
       </ion-item>
     </ion-list>

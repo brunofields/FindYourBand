@@ -22,9 +22,9 @@ ion-content {
 
   h2 {
     position: absolute;
-    font-size: 20px;
+    font-size: 19px;
     top: 9%;
-    font-weight: 600;
+    font-weight: 300;
     left: 27%;
     color: #ffffff;
   }
@@ -85,6 +85,13 @@ ion-content {
     font-weight: 500;
   }
 
+  .avatar{
+    position: absolute;
+    left: 8%;
+    top: 20%;
+    font-size: 40px;
+  }
+
   .btnStyle {
     color: #ffffff;
     width: 90%;
@@ -98,6 +105,7 @@ ion-content {
     ion-icon {
       position: absolute;
       left: 10%;
+      top: 25%;
       font-size: 35px;
     }
   }

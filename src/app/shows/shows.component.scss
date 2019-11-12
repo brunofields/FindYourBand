@@ -62,7 +62,7 @@ ion-content {
     }
   
     .container-slide{
-      background-color: #ffffff;
+      background-color: #f4f5f8e0;
       border-radius: 14px;
       .img-show{
         width: 85%;
@@ -70,11 +70,30 @@ ion-content {
         border-radius: 15px;
       }
       .titulo-slide{
-        color: #e26c6c;
-        font-weight: 600;
+        color: #000000;
+        font-weight: 800;
+        font-size: 1.3em;
+      }
+      p, h4, h5, h6{
+        text-align: center;
+        color: #b91313;
+        font-size: 17px; 
       }
     }
-  
+
+    .slider-pager-page {
+      color: #b8b7b7 !important;
+    }
+
+    .slider-pager-page.active {
+      color: #da3a3a;
+    }
+
+    ion-slides{
+      --bullet-background: #444444;
+      --bullet-background-active: #da3a3a;
+    }
+
     .turnRed {
       color: red;
       font-weight: 500;
