@@ -24,7 +24,7 @@ ion-content {
     position: absolute;
     font-size: 20px;
     top: 0%;
-    font-weight: 600;
+    font-weight: 400;
     left: 27%;
     color: #ffffff;
   }
@@ -32,9 +32,9 @@ ion-content {
   p {
     position: absolute;
     font-size: 13px;
-    left: 30%;
+    left: 27.3%;
     color: #ffffff;
-  } 
+  }
 
   .imgFyb {
     width: 75%;
@@ -45,7 +45,7 @@ ion-content {
     background-size: cover;
   }
 
-  .btnBandas{
+  .btnBandas {
     position: absolute;
   }
 
@@ -84,6 +84,12 @@ ion-content {
     color: red;
     font-weight: 500;
   }
+  .avatar {
+    position: absolute;
+    left: 8%;
+    top: 20%;
+    font-size: 40px;
+  }
 
   .btnStyle {
     color: #ffffff;
@@ -95,13 +101,21 @@ ion-content {
     text-transform: lowercase !important;
     font-size: 1em;
 
+    .filtroIcon {
+      position: absolute;
+      left: 10%;
+      top: 14% !important;
+      font-size: 35px;
+    }
+
     ion-icon {
       position: absolute;
       left: 10%;
+      top: 25%;
       font-size: 35px;
     }
-  }
-  a {
-    text-decoration: none;
+    a {
+      text-decoration: none;
+    }
   }
 }

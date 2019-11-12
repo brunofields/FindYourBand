@@ -102,6 +102,13 @@ ion-content {
     text-transform: lowercase !important;
     font-size: 1em;
 
+     .filtroIcon {
+      position: absolute;
+      left: 10%;
+      top: 14% !important;
+      font-size: 35px;
+    }
+
     ion-icon {
       position: absolute;
       left: 10%;

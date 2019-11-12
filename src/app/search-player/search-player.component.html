@@ -99,7 +99,7 @@
           style="border-radius: 50px !important;"
         >
           filtrar
-          <ion-icon name="search" color="danger"></ion-icon>
+          <ion-icon class="filtroIcon" name="search" color="danger"></ion-icon>
         </ion-button>
       </ion-row>
       <!-- 
@@ -117,12 +117,12 @@
     <ion-list style="margin-top: 10px;">
       <ion-item class="itemBandas" *ngFor="let banda of bandasFirebase; let i = index">
         <ion-thumbnail item-left>
-          <div class="imgFyb"></div>
+          <ion-icon class="avatar" name="person" color="light"></ion-icon>
         </ion-thumbnail>
         <h2>{{ banda.data().nome }}</h2>
         <p>{{ banda.data().talento[0] }}</p>
         <button style="position:absolute; right: 5%; background-color: transparent;" fill="clear" item-right (click)="showModal(banda.data())">
-          <ion-icon style="font-size: 40px;" name="add-circle" color="light"></ion-icon>
+          <ion-icon style="font-size: 35px;" name="add-circle" color="light"></ion-icon>
         </button>
       </ion-item>
     </ion-list>
